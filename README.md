@@ -5,3 +5,4 @@
 
 
 #### Running the app
+1. `npm start` to start the app
