@@ -1,9 +1,28 @@
-html,	
-body {
+html, body {
 	height: 100%;
-    font-size: 16px;		
-    font-family: 'Cubano Regular';
-	background: url(../img/foodies.jpg) center center;
+	width: 100%;
+}
+
+body {
+    font-size: 16px;
+    font-family: cubano, sans-serif;
+	background: url(../img/foodies.jpg);
+	background-repeat: no-repeat;
+	animation-name: slide;
+	animation-duration: 20s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes slide {
+	0% {
+		background: url(../img/foodies.jpg);
+		background-position: 0 50%;
+	}
+	100% {
+		background: url(../img/foodies.jpg);
+		background-position: -3074px 50%;
+	}
 }
 
 #main{
@@ -17,6 +36,7 @@ h1{
     font-size: 124px;
     font-weight: bold;
 }
+
 #comingsoon{
     background: rgba(255,255,255,0.5);
     padding: 5rem 5rem 7rem 5rem;
@@ -35,7 +55,7 @@ footer p {
 	margin-top: 25px;
 }
 
-@font-face {
+/* @font-face {
 	font-family: 'Cubano-Regular';
 	src: local('Cubano-Regular.otf'), url(Cubano-Regular.otf) format('opentype')
-}
+} */
