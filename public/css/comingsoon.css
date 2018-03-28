@@ -1,32 +1,41 @@
 html,	
 body {
-		height: 100%;
-		font-size: 16px;
-		font-family: 'Cubano Regular';
-		background: url(../img/foodies.jpg) center center;
-	}
+	height: 100%;
+    font-size: 16px;		
+    font-family: 'Cubano Regular';
+	background: url(../img/foodies.jpg) center center;
+}
 
 #main{
-		font-size: 3rem;
-		margin-left: 350px;
-		margin-bottom: 250px; 
-		text-align: center
-	}
+    padding-top: 150px;
+	font-size: 3rem;
+	margin-bottom: 150px; 
+	text-align: center
+}
+    
+h1{
+    font-size: 124px;
+    font-weight: bold;
+}
+#comingsoon{
+    background: rgba(255,255,255,0.5);
+    padding: 5rem 5rem 7rem 5rem;
+}
 
 footer{
-		background-color: black;
-		padding-bottom: 10px;
-		position: relative;
-		text-align: center
-	}
+	background-color: black;
+    padding-bottom: 10px;		
+    position: relative;
+    text-align: center
+}
 
 footer p {
-		color: #888;
-		font-size: 18px;
-		margin-top: 25px;
-	}
+	color: #888;
+	font-size: 18px;
+	margin-top: 25px;
+}
 
 @font-face {
-		font-family: 'Cubano-Regular';
-		src: local('Cubano-Regular.otf'), url(Cubano-Regular.otf) format('opentype')
-	}
+	font-family: 'Cubano-Regular';
+	src: local('Cubano-Regular.otf'), url(Cubano-Regular.otf) format('opentype')
+}
