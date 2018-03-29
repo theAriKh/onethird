@@ -1,4 +1,5 @@
-## info30005-2018-cw
+#INFO 30005 Project
+This is a project by Anthony, Ari and Nick for Web Information Technolgies. It's a web application that aims to reduce food wastage. 
 
 #### Set up
 1. `npm install` to install all the dependencies
