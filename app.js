@@ -4,11 +4,11 @@ const path = require('path')
 const mongoose = require('mongoose')
 
 // Connect to mongoose
-mongoose.connect('mongodb://localhost/onethird')
-    .then(() => console.log('MongoDB Connected..'))
-    .catch(err => {
-        console.log(err)
-    });
+// mongoose.connect('mongodb://localhost/onethird')
+//     .then(() => console.log('MongoDB Connected..'))
+//     .catch(err => {
+//         console.log(err)
+//     });
 
 //Load routes
 const home = require('./routes/home');
