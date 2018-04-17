@@ -14,12 +14,32 @@
     float: none;
     margin: 0;
   }
-
   .nav {
       margin-top: 0;
       
   }
-
   .nav-item {
       margin-top: 5px;
   }
+
+.form-control{
+    width: 300px;
+    display: inline-block;
+    margin-top: 1px;
+}
+.input-group{
+    position: relative;
+    height: 38px;
+    margin-bottom: 3rem;
+    margin-top:8px;
+    
+}
+
+#addToCart{
+    position: relative;
+    margin-left: auto;
+}
+#search{
+    margin-left: 156.98px; 
+}
+
