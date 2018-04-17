@@ -9,4 +9,8 @@ router.get('/register', (req, res) => {
     res.render('users/register')
 })
 
+router.get('/myaccount', (req, res) => {
+    res.render('users/myaccount')
+})
+
 module.exports = router;
