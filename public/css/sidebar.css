@@ -1,0 +1,25 @@
+.navbar-fixed-side-left {
+    left: 0;
+  }
+
+.navbar-fixed-side {
+    position: fixed;
+    border-width: 0;
+    z-index: 1030;
+    min-height: 800px;
+    min-width: 5px;
+    max-width: 200px;
+    margin-bottom: 0;
+    border: 0px solid transparent;
+    float: none;
+    margin: 0;
+  }
+
+  .nav {
+      margin-top: 0;
+      
+  }
+
+  .nav-item {
+      margin-top: 5px;
+  }
