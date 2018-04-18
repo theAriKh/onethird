@@ -3,11 +3,21 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
     <title> Welcome to OneThird </title>
 </head>
 
 <body>
     <% include partials/navbar.ejs %>
+
+    <div class="col-sm-8">
+        <input class="form-control" id="item" type="text" placeholder="SEARCH">
+        <span class="input-group-btn">
+            <button class="btn btn-secondary margin-right">
+                <i class="fa fa-search" aria-hidden="true"></i> Search</button>
+        </span>
+    </div>
+
     
     <% include partials/scripts.ejs %>
 
