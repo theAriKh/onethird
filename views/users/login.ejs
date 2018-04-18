@@ -8,7 +8,7 @@
 
 <body>
     <% include ../partials/navbar.ejs %>
-    <div class="row">
+        <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="card card-body">
                     <h3 class="text-center">Account Login</h3>
@@ -17,20 +17,22 @@
                             <label for="email">Email</label>
                             <input type="email" name="email" class="form-control" required>
                         </div>
-        
+
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <a class="btn btn-primary" href="/main">Log In</a>
+                        <!-- <button type="submit" class="btn btn-primary">Log In</button> -->
                     </form>
                 </div>
             </div>
         </div>
 
         <% include ../partials/scripts.ejs %>
-    
-    
+
+
 
 </body>
 

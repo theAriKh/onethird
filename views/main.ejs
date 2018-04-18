@@ -5,13 +5,14 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/sidebar.css">
     <link rel="stylesheet" type="text/css" href="css/shoppingcart.css">
+    <link rel="stylesheet" type="text/css" href="css/browse.css">
     <title> Welcome to OneThird </title>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="#">OneThird</a>
+        <a class="navbar-brand" href="/main">OneThird</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -43,7 +44,7 @@
         </ul>
     </nav>
 
-    <div class="container">
+    <div class="container browse">
         <div class="row input-group" id="search">
             <div class="col-sm-8">
                 <input class="form-control" id="item" type="text" placeholder="SEARCH">
@@ -54,15 +55,13 @@
             </div>
 
             <div class="col-sm-2" id="myCart">
-                <button class="btn btn-secondary margin-right" data-toggle="modal" data-target="#cart">
+                <button class="btn btn-secondary float-right" data-toggle="modal" data-target="#cart">
                     <i class="fas fa-shopping-cart" aria-hidden="true"></i> My Cart</button>
             </div>
         </div>
+
+        <% include partials/browse.ejs%>
     </div>
-
-
-
-    <% include partials/browse.ejs%>
 
     <div id="giveaway" class="modal fade" role="dialog">
         <div class="modal-dialog">
