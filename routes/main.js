@@ -6,8 +6,10 @@ const router = express.Router();
 router.get('/', (req, res) => {
     // console.log("here", items);
     let items = [];
+    let myitems =[]
     res.render("main", {
-        items: items
+        items: items,
+        myitems:myitems
     });
 })
 
