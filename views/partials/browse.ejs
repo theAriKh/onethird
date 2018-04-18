@@ -1,15 +1,14 @@
-
 <div class="items">
-    <% if(items.length > 0) {%>
-        <h1>Browse</h1>
-        <ul>
-            <%for (i=0;i<items.length;i++){%>
-                <li><%=items[i].item%> <%=items[i].quantity%>
-                    <%=items[i].price%></li>
-            <%}%>
-        </ul>
+    <% if(items.length > 0) { %>
+    <h1>Browse</h1>
 
+        <% for (i = 0;i < items.length;i++){ %>
+            <img class = 'thumbnail' src = <%= items[i].img%>>
+
+
+
+    <%}%>
     <% } else { %>
-        <h1> No items</h1>            
-    <% }%>
+    <h1> No items</h1>
+    <% } %>
 </div>
