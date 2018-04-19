@@ -3,3 +3,18 @@
     display: inline-block;
     margin-top: 1px;
 }
+
+#links{
+    display : grid;
+    grid-template-columns: 50% 50%;
+}
+
+.links{
+    display : block;
+    text-align : center;
+    box-sizing : border-box;
+    width: 80%;
+
+    background-color : #17A2B8;
+    color : #FFFFFF;
+}

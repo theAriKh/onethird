@@ -8,7 +8,6 @@ class Food {
         this.price = price;
         this.expiry = expiry;
         this.img = img;
-
     }
 }
 
