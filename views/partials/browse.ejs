@@ -1,14 +1,41 @@
+<h1>Browse</h1>
 <div class="items">
     <% if(items.length > 0) { %>
-    <h1>Browse</h1>
 
-        <% for (i = 0;i < items.length;i++){ %>
-            <img class = 'thumbnail' src = <%= items[i].img%>>
+    <% for (i = 0;i < items.length;i++){ %>
+    <div class = "item">
 
+        <img class='thumbnail' src= <%= items[i].img %>>
 
+        <div class = "item-info">
+            <p class = "item-desc"><%= items[i].quantity %> <%= items[i].item %></p>
+            <p class = "item-price">$<%= items[i].price %></p>
+            <button data-toggle="modal" data-target="#item-modal" data=<%items[i]%>>info</button>
+        </div>
 
-    <%}%>
+    </div>
+    <% } %>
     <% } else { %>
     <h1> No items</h1>
     <% } %>
 </div>
+
+<div id="item-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class = "modal-header">
+            <h4 class ="modal-title" id="item-modal-label">Item Information</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-content">
+
+            <p>Item: <span class = "item-name"></span></p>
+            <p>Price: <span class = "item-price"></span></p>
+            <p>Expiry: <span class = "item-expiry"></span></p>
+        </div>
+    </div>
+</div>
+
+<% include scripts.ejs %>
+

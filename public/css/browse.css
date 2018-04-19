@@ -1,5 +1,6 @@
 .browse{
     margin-left: 156.98px;
+
 }
 
 #myCart{
@@ -12,4 +13,35 @@
     margin-bottom: 3rem;
     margin-top:8px; 
     width: 110%;
+}
+
+.thumbnail{
+    display : block;
+    box-sizing : border-box;
+    width : 100px;
+    padding : 10px;
+    border: 5px solid #DDD;
+    margin-left : auto;
+    margin-right: auto;
+}
+
+.items{
+    display : grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+
+}
+
+.item{
+    box-sizing : border-box;
+    width : 200px;
+    padding : 20px;
+    border: 10px solid #DDD;
+    margin : 1px;
+
+}
+
+
+.item-info{
+    text-align : center;
+    margin : auto;
 }
