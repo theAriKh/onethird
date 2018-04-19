@@ -14,6 +14,9 @@ body {
 h2 {
     font-family:'Cormorant Garamond', serif;
 }
+.description{
+    font-family: 'Cormorant Garamond', serif;
+}
 
 .welcome {
     font-style: italic;
