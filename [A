@@ -1,0 +1,265 @@
+[33mcommit 34918b2e407cb5402efb440d36ecde5588a6a868[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Apr 19 17:27:59 2018 +1000
+
+    so i can access pulled git
+
+[33mcommit fa595fe7014c4936c90ec067dc56b98314aadc3d[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Apr 19 12:48:25 2018 +1000
+
+    browse front end complete
+
+[33mcommit 452a71984f580ec52e8fb9ddc508d19d11da8911[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Apr 19 11:25:17 2018 +1000
+
+    add to cart button added
+
+[33mcommit 6a2e3b6681b8f91fd93113a8bde613dde3d3d42e[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Apr 19 11:21:55 2018 +1000
+
+    modal with placeholders appear when items are clicked
+
+[33mcommit bcb664185d81da16ff621819810b9496eddff54a[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Wed Apr 18 17:37:17 2018 +1000
+
+    images appear within browse without any links
+
+[33mcommit 11f4ff608e6cab5c3992785c43d1d34e25afea29[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Wed Apr 18 16:00:43 2018 +1000
+
+    browser renders with test list of items
+
+[33mcommit 72c1200355a9a3246a0c408e4225456742835571[m
+Merge: 79d7ea1 1672969
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Apr 18 15:39:46 2018 +1000
+
+    Merge branch 'master' of https://github.com/theAriKh/info30005-2018-cw
+
+[33mcommit 79d7ea12b7e6175beee3ea029ac1041bf0dedac7[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Apr 18 15:11:01 2018 +1000
+
+    register update
+
+[33mcommit 16729692878e3d715ce48cee51595404bda73b7b[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Wed Apr 18 15:06:01 2018 +1000
+
+    db.js filled with food classes for testing, images added to img
+
+[33mcommit c7f6a9f5b8f51a93397c62be244a80b9f2e5d2b6[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Apr 18 14:45:26 2018 +1000
+
+    minor update to shopping cart
+
+[33mcommit 71f526de18e9f40bcff051014a9207dddf493e49[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Apr 18 14:30:12 2018 +1000
+
+    made buttons to work
+
+[33mcommit 20388379af35837c7cb3075dc13ac06b21c49568[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Apr 18 13:53:15 2018 +1000
+
+    added browse partial
+
+[33mcommit e9f4c9fb869bff100c408f626da632b2d4c70910[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Wed Apr 18 12:57:56 2018 +1000
+
+    added models directory and db js file for faker components of prototype
+
+[33mcommit 263f87010937ebee32e2957f569c42f7e8f689e8[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Apr 18 09:54:18 2018 +1000
+
+    commented out mongodb set up
+
+[33mcommit 690534be5b75849e607f984ed55d2f734f953b58[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Tue Apr 17 17:27:55 2018 +1000
+
+    shopping cart
+
+[33mcommit 755a9a91260b1d4cf1dfd58bc180459370899e5d[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Tue Apr 17 16:49:51 2018 +1000
+
+    implemented myAccount
+
+[33mcommit 32181e09725da64d549b8c2c36f444a3bcea8f76[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Tue Apr 17 16:40:34 2018 +1000
+
+    added search bar and cart button
+
+[33mcommit e820b58ad6a3aa1c6f4827f947f3fe7f828e2078[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Tue Apr 17 15:54:58 2018 +1000
+
+    added side bar and giveaway
+
+[33mcommit 5bb57163fed8f6d18c76d26fdee8c62d88d64c6b[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Tue Apr 17 12:35:54 2018 +1000
+
+     added login and registrarion page
+
+[33mcommit 2a2c82992e132ddfb02fb7d180a5efbc3c909ff9[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Thu Mar 29 17:54:30 2018 +1100
+
+    centering coming soon
+
+[33mcommit e24f55f5124014f08352da65a2b5000ca2d32070[m
+Author: nconte11 <nicconte11@gmail.com>
+Date:   Thu Mar 29 17:21:02 2018 +1100
+
+    Set footer to bottom of screen
+
+[33mcommit 3ba5eb0ea2a2e4fb6406681038189cdc85e33cfd[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Thu Mar 29 12:08:16 2018 +1100
+
+    updated readme
+
+[33mcommit 65bd18f0942dbd560e217f06bda4cfa4c466c085[m
+Author: nconte11 <nicconte11@gmail.com>
+Date:   Thu Mar 29 00:29:30 2018 +1100
+
+    Made scrolling background in CSS and fixed font-family
+
+[33mcommit 55d3d10329e4cca70be3c2e6af2c345d0ed30ff7[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Mar 28 17:41:34 2018 +1100
+
+    deleted extra html files from week 1
+
+[33mcommit 9d5c65642842c3cc7630d98b5102940f7ed9f068[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Mar 28 17:26:04 2018 +1100
+
+    minor footer change
+
+[33mcommit 3556d4fd6ad1de94152a22299dd54e962d62076e[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Mar 28 17:08:39 2018 +1100
+
+    added some styling to coming soon page
+
+[33mcommit 56dded674f675f86756d7077be2c32c4d4ffc292[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Mar 28 16:41:11 2018 +1100
+
+    css file loads now
+
+[33mcommit e6d6fa16b74ecc28562426bba08b72c9a69b7c25[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Mar 28 12:53:23 2018 +1100
+
+    added some styling
+
+[33mcommit cddf5c9f18c5d696a7fc8345c5193485a2308d39[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Wed Mar 28 12:22:00 2018 +1100
+
+    updated coming soon page
+
+[33mcommit 4d24edcf72816d9015930915bd758082fe9def9c[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Tue Mar 27 14:50:40 2018 +1100
+
+    added description into coming soon page
+
+[33mcommit 9e80025c336dfebe1ea543f01ab84405b20ef19a[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Mon Mar 26 15:10:22 2018 +1100
+
+    model view control sep
+
+[33mcommit af62b4c8c3ce4b0bd143c24854a878cf770969ff[m
+Merge: 239f168 e5f07d7
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Tue Mar 20 09:18:46 2018 +1100
+
+    Merge branch 'master' of https://github.com/theAriKh/info30005-2018-cw
+
+[33mcommit 239f1682b629528258a94f6c40f52c9d6b00281d[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Tue Mar 20 09:16:20 2018 +1100
+
+    added app.js and package.json files
+
+[33mcommit e5f07d7b33b5e9d901bc39a91f9dfbe6a1ea1c72[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Mar 8 18:43:20 2018 +1100
+
+    added links to index page
+
+[33mcommit acfebad5508f4c2a84717788ebd203fe0388b64f[m
+Author: nconte11 <nicconte11@gmail.com>
+Date:   Thu Mar 8 18:30:03 2018 +1100
+
+    Added back button to interviewguide.html
+
+[33mcommit 821ce06f3017f6a0e8293c95497ec6192c6cd290[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Mar 8 18:23:41 2018 +1100
+
+    removing file
+
+[33mcommit 94790b626a42222a0afe2c67d274cbbfd05c65a1[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Thu Mar 8 18:17:30 2018 +1100
+
+    Create .gitignore
+
+[33mcommit 8f91686f1bfee24ddbe08b8e58b48397c81443de[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Mar 8 18:15:55 2018 +1100
+
+    added all links to pages within 'projectSpec'
+
+[33mcommit 60b920ff01fbc9adb49a6f924a0928cec87cc444[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Mar 8 18:09:37 2018 +1100
+
+    updated project spec page with link to index page
+
+[33mcommit 65dc1a3e123df85631b70584726dfc58f17a7465[m
+Author: Anthony Miller <agmiller794@gmail.com>
+Date:   Thu Mar 8 18:03:25 2018 +1100
+
+    adding project specifications
+
+[33mcommit c7373e37d5620f4bd11a315be73f1ab37c66892d[m
+Author: nconte11 <nicconte11@gmail.com>
+Date:   Thu Mar 8 17:59:42 2018 +1100
+
+    Added interviewguide.html
+
+[33mcommit 76f90fe1cbc1b69fb9a91958acc0cdfb170b26dc[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Thu Mar 8 17:51:05 2018 +1100
+
+    adding proposal and teammembers
+
+[33mcommit 6ada056fd4c0d49f3bb0aabd718c372785d37069[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Thu Mar 8 17:41:15 2018 +1100
+
+    adding index file
+
+[33mcommit 5d696193d9749fcfa84661f98b80b78faf1a02bc[m
+Author: Ari Khuyagbaatar <ari.cnd@gmail.com>
+Date:   Thu Mar 8 17:36:27 2018 +1100
+
+    first commit
