@@ -12,6 +12,7 @@ body {
 	animation-duration: 20s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
+    overflow: hidden;
 }
 
 @keyframes slide {
@@ -52,6 +53,10 @@ footer p {
 	color: #888;
 	font-size: 18px;
 	margin-top: 25px;
+}
+
+#drone {
+    position: absolute;
 }
 
 /* @font-face {
