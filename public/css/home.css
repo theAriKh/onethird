@@ -1,20 +1,69 @@
-.form-control{
-    width: 600px;
-    display: inline-block;
-    margin-top: 1px;
+
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+body {
+    background-color: #516375;
+    color: #F3F4F5;
 }
 
-#links{
-    display : grid;
-    grid-template-columns: 50% 50%;
+.onethird{
+    font-size: 6em;
+    font-family: 'Lobster', cursive;
 }
 
-.links{
-    display : block;
-    text-align : center;
-    box-sizing : border-box;
-    width: 80%;
+h2 {
+    font-family:'Cormorant Garamond', serif;
+}
+.description{
+    font-family: 'Cormorant Garamond', serif;
+}
 
-    background-color : #17A2B8;
-    color : #FFFFFF;
+.welcome {
+    font-style: italic;
+    font-size: 3em;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.title {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding-top: 3em;
+    margin-bottom: 4%;
+}
+
+hr {
+    display: block;
+    height: 6px;
+    border: 0;
+    border-top: 1px solid #F3F4F5;
+    margin: 1em 0;
+}
+
+/*Apapted from Chris Coyier http://jsfiddle.net/ZTz7Q/*/
+.fade_line {
+    margin: 25px 0;
+    height: 1px;
+    background: black;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(#516375), to(#516375), color-stop(50%, #F3F4F5));
+}
+
+.carousel-inner .active.left  { left: -33%;             }
+.carousel-inner .active.right { left: 33%;              }
+.carousel-inner .next         { left: 33%               }
+.carousel-inner .prev         { left: -33%              }
+.carousel-control.left        { background-image: none; }
+.carousel-control.right       { background-image: none; }
+.carousel-inner .item         { background: #516375;      }
+
+.homecenter {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image:none !important;
+    filter:none !important;
+
 }
