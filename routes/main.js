@@ -21,7 +21,6 @@ router.post('/', (req, res)=>{
     let items = require("../Models/db.js");
     let index = parseInt(req.body.index)
     let myitems = [items[index]]
-    console.log("item: ", items[index])
     res.render("main", {
         items: items,
         myitems: myitems
