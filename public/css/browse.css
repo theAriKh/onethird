@@ -1,3 +1,26 @@
+body{
+    background: url('http://afghansk.se/wp-content/uploads/2014/05/bild2-2048x1280.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-position: bottom right;
+}
+
+.whole-page {
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    right: 0;
+
+    width: -o-calc(100% - 166.688px); /* opera */
+    width: -webkit-calc(100% - 166.688px); /* google, safari */
+    width: -moz-calc(100% - 166.688px); /* firefox */
+
+    height: -o-calc(100% - 63px); /* opera */
+    height: -webkit-calc(100% - 63px); /* google, safari */
+    height: -moz-calc(100% - 63px); /* firefox */
+    overflow: hidden;
+}
+
 .browse{
     margin-left: 156.98px;
 }
@@ -10,7 +33,7 @@
     position: relative;
     height: 38px;
     margin-bottom: 3rem;
-    margin-top:8px; 
+    padding-top:8px;
     width: 110%;
 }
 
@@ -37,9 +60,15 @@
     box-sizing : border-box;
     width : 200px;
     padding : 20px;
-    border: 10px solid #17A2B8;
+    border: 10px solid #A5D0B5;
     margin : 1px;
     border-radius: 25px;
+    background-color: rgba(255,255,255,.7);
+}
+
+.item:hover {
+    cursor: pointer;
+    background-color: #A5D0B5;
 }
 
 .img-placeholder{
@@ -54,10 +83,6 @@
     margin-right: auto
 }
 
-.item:hover{
-    cursor: pointer;
-    background-color : #17A2B8;
-}
 .item-info{
     text-align : center;
     margin : auto;

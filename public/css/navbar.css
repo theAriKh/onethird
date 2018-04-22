@@ -1,3 +1,59 @@
-/* .navbar {
-    background-color: blueviolet;
-} */
+@import url('https://fonts.googleapis.com/css?family=Proza+Libre');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+.navbar {
+    background-color: rgba(19, 18, 13, 0.75);
+    color: #FBF9F7;
+    /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";*/
+    font-family: 'Proza Libre', sans-serif;
+    margin-bottom: 0;
+    padding-bottom: 8px;
+}
+
+.navbar-light .navbar-brand {
+    color: #FBF9F7;
+    font-family: 'Lobster', cursive;
+    font-size: 25px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #FBF9F7;
+    font-family: 'Proza Libre', sans-serif;
+    font-size: 14px;
+}
+
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: #A5D0B5;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #A5D0B5;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.navbar-fixed-side {
+    height: 100%;
+}
+
+.btn-info {
+    color: #FFFFFF;
+    background-color: #A5D0B5;
+    border-color: #A5D0B5;
+}
+
+.btn-info:hover {
+    color: #fff;
+    background-color: #7DBB00;
+    border-color: #7DBB00;
+}
+
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {
+    color: #fff;
+    background-color: #508405;
+    border-color: #508405;
+}

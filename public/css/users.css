@@ -1,0 +1,29 @@
+body {
+    background-image: url('http://afghansk.se/wp-content/uploads/2014/05/bild2-2048x1280.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-position: bottom right;
+}
+
+.card {
+    background-color: rgba(255,255,255,.9);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #A5D0B5;
+    border-color: #A5D0B5;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #7DBB00;
+    border-color: #7DBB00;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #508405;
+    border-color: #508405;
+}
