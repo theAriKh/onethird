@@ -27,7 +27,7 @@
                 <img class='thumbnail' src= <%= items[i].img %>>
                 <p>Item: <%= items[i].quantity %> <%= items[i].item %></p>
                 <p>Price: $ <%= items[i].price %></p>
-                <p>Expiry: <%=items[i].expiry%></p>
+                <p>Expiry: <%=items[i].expiry.getDate()%>/<%=items[i].expiry.getMonth()%>/<%=items[i].expiry.getFullYear()%></p>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default">Add to Cart</button>
                 </div>
