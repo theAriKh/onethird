@@ -15,6 +15,7 @@
 }
 
 .thumbnail{
+
     display : block;
     box-sizing : border-box;
     width : 100px;
@@ -34,6 +35,7 @@
 }
 
 .item{
+    grid-column-gap : 1em;
     box-sizing : border-box;
     width : 200px;
     padding : 20px;
