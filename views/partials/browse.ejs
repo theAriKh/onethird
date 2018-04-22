@@ -11,6 +11,26 @@
             <p class = "item-desc"><%= items[i].quantity %> <%= items[i].item %></p>
             <p class = "item-price">$<%= items[i].price %></p>
         </div>
+        <div id="item-modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Item Information</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="img-placeholder"></div>
+                    <p>Item: <span class="item-name"><%= items[i].quantity %> <%= items[i].item %></span></p>
+                    <p>Price: <span class="item-price"><%= items[i].price %></span></p>
+                    <p>Expiry: <span class="item-expiry"><%=items[i].expiry%></span></p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <% } %>
@@ -19,26 +39,7 @@
     <% } %>
 </div>
 
-<div id="item-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Item Information</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
 
-            <div class="img-placeholder"></div>
-            <p>Item: <span class="item-name"></span></p>
-            <p>Price: <span class="item-price"></span></p>
-            <p>Expiry: <span class="item-expiry"></span></p>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</div>
 <script>
 
 </script>
