@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Proza+Libre');
+
+footer{
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    margin-top: 15%;
+}
+
+footer p {
+    color: var(--main-text-color);
+    font-size: 18px;
+    width: 100%;
+    display:inline-block;
+    margin-top: 10px;
+    font-family: 'Proza Libre', sans-serif;
+}
+
+.container {
+    width: 100%;
+    background-color: var(--main-bg-color-tp);
+    overflow: visible;
+    min-width: 100%;
+}
