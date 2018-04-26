@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser');
 
 // Connect to mongoose
 // mongoose.connect('mongodb://localhost/onethird')
@@ -18,13 +19,22 @@ const main = require('./routes/main');
 
 app.set('view engine', 'ejs');
 
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')))
+
 
 // Use routes
 app.use('/', home);
 app.use('/users', users);
 app.use('/main', main);
+
+
+
+
 
 const port = process.env.PORT || 5000;
 
