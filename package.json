@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/theAriKh/info30005-2018-cw#readme",
   "dependencies": {
+    "angularjs": "0.0.1",
     "ejs": "^2.5.8",
     "express": "^4.16.3",
     "mongoose": "^5.0.15"
