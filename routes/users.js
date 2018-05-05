@@ -5,13 +5,24 @@ const mongoose = require('mongoose');
 
 // move them into controller
 const bcrypt = require('bcryptjs');
-//const passport = require('passport');
+const passport = require('passport');
 // load user model
 require('../models/user');
 const User = mongoose.model('user');
 
 router.get('/login', (req, res) => {
-    res.render('users/login')
+    res.render('users/login', {
+        errors: []
+    })
+})
+
+router.post('/login', (req,res, next)=>{
+    passport.authenticate('local', {
+        successRedirect:'/main',
+        failureRedirect: '/users/login',
+        failureFlash:true
+    })(req,res,next);
+
 })
 
 router.get('/register', (req, res) => {
@@ -38,7 +49,6 @@ router.post('/register', (req, res)=>{
         errors.push({ text : 'Passwords do not match'})
     }
     if (errors.length > 0){
-        console.log("work please")
         res.render('users/register', {
             errors: errors,
             name: req.body.name,
@@ -52,7 +62,6 @@ router.post('/register', (req, res)=>{
             postalCode: req.body.postalCode,
             phoneNumber: req.body.phoneNumber
         })
-        console.log("bye", errors)
     }
     
     else {

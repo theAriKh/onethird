@@ -1,6 +1,10 @@
+<% if (error != "") {%>
+<div class="alert alert-danger"> <%= error %> </div>
+
+<%} else {%>
 
 <% for (var i = 0;i < errors.length;i++){ %>
 
 <div class="alert alert-danger"> <%= errors[i].text %> </div>
 
-<% } %>
+<% }} %>
