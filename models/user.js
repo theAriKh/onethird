@@ -45,8 +45,12 @@ const UserSchema = new Schema({
     },
     points:{
         type: Number,
-        required: 0
+        default: 0
     },
+    admin:{
+        type: Boolean,
+        default: false
+    }
 });
 
 mongoose.model('user', UserSchema);

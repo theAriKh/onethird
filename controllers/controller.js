@@ -61,10 +61,10 @@ var createUser = function(req, res){
 
 var getUser = function(req, res, next){
     passport.authenticate('local', {
-        successRedirect:'/main',
+        successRedirect: '/main',
         failureRedirect: '/users/login',
         failureFlash:true
-    })(req,res,next);
+    })(req,res,next)
 }
 
 var getMyAccount = function(req, res){
@@ -105,6 +105,7 @@ var register = function(req, res){
     })
 
 }
+
 
 module.exports.createUser = createUser;
 module.exports.getUser = getUser;

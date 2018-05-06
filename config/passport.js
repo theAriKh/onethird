@@ -7,6 +7,7 @@ const User = mongoose.model('user')
 
 module.exports = function(passport){
     passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done)=>{
+        console.log("in local startegy")
         User.findOne({
             email: email
         }).then(user=>{

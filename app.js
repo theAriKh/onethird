@@ -43,6 +43,7 @@ app.use(function(req, res, next){
 const home = require('./routes/home');
 const users = require('./routes/users');
 const main = require('./routes/main');
+const admin = require('./routes/admin');
 
 
 app.set('view engine', 'ejs');
@@ -58,6 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', home);
 app.use('/users', users);
 app.use('/main', main);
+app.use('/admin',admin);
 
 const port = process.env.PORT || 5000;
 
