@@ -34,9 +34,7 @@ router.get('/register', (req, res) => {
 // create new user
 router.post('/register', controller.createUser)
 
-router.get('/myaccount', (req, res) => {
-    res.render('users/myaccount')
-})
+router.get('/myaccount', controller.getMyAccount)
 
 router.get('/logout', (req,res)=>{
     req.logout();

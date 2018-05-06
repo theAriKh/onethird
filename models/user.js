@@ -42,7 +42,11 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    points:{
+        type: Number,
+        required: 0
+    },
 });
 
 mongoose.model('user', UserSchema);

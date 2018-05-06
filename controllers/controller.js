@@ -37,7 +37,7 @@ var createUser = function(req, res){
             province: req.body.province,
             country: req.body.country,
             postalCode: req.body.postalCode,
-            phoneNumber: req.body.phoneNumber
+            phoneNumber: req.body.phoneNumber,
         })
 
         bcrypt.genSalt(10, (err, salt)=>{
@@ -67,5 +67,25 @@ var getUser = function(req, res, next){
     })(req,res,next);
 }
 
+var getMyAccount = function(req, res){
+    if(!req.isAuthenticated()){
+        req.flash('error_msg', 'Not Authorized');
+        res.redirect('login')
+    } else {
+        User.findOne({
+            _id:req.user.id
+        }).then(user=>{
+            console.log("what", user)
+            console.log('getMyAccount', user.name)
+            res.render('users/myaccount', {
+                user: user
+            })
+        })
+      
+    }
+}
+
+
 module.exports.createUser = createUser;
 module.exports.getUser = getUser;
+module.exports.getMyAccount = getMyAccount;
