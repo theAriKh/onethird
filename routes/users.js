@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/controller');
@@ -14,21 +12,7 @@ router.get('/login', (req, res) => {
 router.post('/login', controller.getUser)
 
 
-router.get('/register', (req, res) => {
-    res.render('users/register', {
-        errors: [],
-        name: '',
-        email:"",
-        password: "",
-        password2: "",
-        streetAddress: "",
-        city: "",
-        province: "",
-        country: "",
-        postalCode: "",
-        phoneNumber:""
-    })
-})
+router.get('/register',controller.register)
 
 
 // create new user
@@ -36,10 +20,6 @@ router.post('/register', controller.createUser)
 
 router.get('/myaccount', controller.getMyAccount)
 
-router.get('/logout', (req,res)=>{
-    req.logout();
-    req.flash('success_msg', "You are logged out")
-    res.redirect('/users/login')
-})
+router.get('/logout', controller.logout)
 
 module.exports = router;

@@ -75,8 +75,6 @@ var getMyAccount = function(req, res){
         User.findOne({
             _id:req.user.id
         }).then(user=>{
-            console.log("what", user)
-            console.log('getMyAccount', user.name)
             res.render('users/myaccount', {
                 user: user
             })
@@ -85,7 +83,31 @@ var getMyAccount = function(req, res){
     }
 }
 
+var logout = function(req, res){
+    req.logout();
+    req.flash('success_msg', "You are logged out")
+    res.redirect('/users/login')
+}
+
+var register = function(req, res){
+    res.render('users/register', {
+        errors: [],
+        name: '',
+        email:"",
+        password: "",
+        password2: "",
+        streetAddress: "",
+        city: "",
+        province: "",
+        country: "",
+        postalCode: "",
+        phoneNumber:""
+    })
+
+}
 
 module.exports.createUser = createUser;
 module.exports.getUser = getUser;
 module.exports.getMyAccount = getMyAccount;
+module.exports.logout = logout;
+module.exports.register = register;
