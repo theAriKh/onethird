@@ -6,22 +6,15 @@ const Item = mongoose.model('item');
 
 var isAdmin = function (req, res) {
 
-    res.render('admin/index')
-    //res.send("WORKING")
-    // if(!req.isAuthenticated()){
-    //     req.flash('error_msg', 'Not Authorized');
-    //     res.redirect('login')
-    // } else {
-    //     if (!req.user.admin()) {
-    //         req.flash('error_msg', 'Not Authorized');
-    //         res.redirect('login')
-    //     }
-    //     else {
-    //         res.send("WORKING")
-    //         //res.render('admin')
-    //     }
 
-    // }
+    Item.find({}).then(items=>{
+
+        res.render('admin/index', {
+            items: items
+        })
+
+      
+    })
 }
 
 var addItem = function(req, res){
@@ -59,6 +52,10 @@ var processItem = function(req, res){
         })
     };
 }
+
+// var getItems = function(req, res){
+
+// }
 
 module.exports.isAdmin = isAdmin;
 module.exports.addItem = addItem;

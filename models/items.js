@@ -8,11 +8,16 @@ const ItemSchema = new Schema({
         required: true
     },
     // photo: {
-    //     type: String,
+    //     data: Buffer,
+    //     contentType: String,
     //     required: true
     // },
     description: {
         type: String,
+        required:true
+    },
+    quantity: {
+        type: Number,
         required:true
     },
     date: {

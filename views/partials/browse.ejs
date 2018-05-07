@@ -7,11 +7,10 @@
                 <img class='thumbnail' src=<%= items[i].img %>>
                 <div class="item-info">
                     <p class="item-desc">
-                        <%= items[i].quantity %>
-                            <%= items[i].item %>
+                        <%= items[i].title %>
                     </p>
-                    <p class="item-price">$
-                        <%= items[i].price %>
+                    <p class="item-price">
+                        <%= items[i].points %> points
                     </p>
 
                 </div>
@@ -28,19 +27,23 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <img class='thumbnail' src=<%= items[i].img %>>
+                            <!-- <img class='thumbnail' src=<%= items[i].img %>> -->
 
                             <div class="form-group">
                                 <label for="title"> Item</label>
-                                <input type="text" class="form-control" name="title" value=<%= items[i].quantity %><%= items[i].item %> disabled></input>
+                                <input type="text" class="form-control" name="title" value=<%= items[i].title %> disabled></input>
                             </div>
                             <div class="form-group">
                                 <label for="point"> Points</label>
-                                <input type="text" class="form-control" name="point" value=<%= items[i].price%> points disabled></input>
+                                <input type="text" class="form-control" name="point" value=<%= items[i].points%> points disabled></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="description"> Description</label>
+                                <input type="text" class="form-control" name="description" value=<%= items[i].description %> disabled></input>
                             </div>
                             <div class="form-group">
                                 <label for="title"> Expiry</label>
-                                <input type="text" class="form-control" name="expiry" value=<%= items[i].expiry.getDate()%>/<%=items[i].expiry.getMonth()%>/<%=items[i].expiry.getFullYear()%> disabled></input>
+                                <input type="text" class="form-control" name="expiry" value=<%= items[i].date%> disabled</input>
                             </div>
 
                             <div class="form-group">

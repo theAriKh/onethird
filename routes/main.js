@@ -1,17 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const controller = require('../controllers/main');
 
 
 
-router.get('/', (req, res) => {
-    // console.log("here", items);
-    let items = require("../Models/db.js");
-    let myitems =[]
-    res.render("main", {
-        items: items,
-        myitems:myitems
-    });
-})
+router.get('/', controller.getItems)
 
 router.get('/giveaway', (req,res)=>{
     res.render("giveaway");
