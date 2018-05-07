@@ -16,47 +16,47 @@
                 </div>
             </div>
 
-            <div id="<%= items[i].item %>item-modal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
+    <div id="<%= items[i].item %>item-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-                    <form action="/main" method="post">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Item Information</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <!-- <img class='thumbnail' src=<%= items[i].img %>> -->
+            <form action="/main" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Item Information</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- <img class='thumbnail' src=<%= items[i].img %>> -->
 
-                            <div class="form-group">
-                                <label for="title"> Item</label>
-                                <input type="text" class="form-control" name="title" value=<%= items[i].title %> disabled></input>
-                            </div>
-                            <div class="form-group">
-                                <label for="point"> Points</label>
-                                <input type="text" class="form-control" name="point" value=<%= items[i].points%> points disabled></input>
-                            </div>
-                            <div class="form-group">
-                                <label for="description"> Description</label>
-                                <input type="text" class="form-control" name="description" value=<%= items[i].description %> disabled></input>
-                            </div>
-                            <div class="form-group">
-                                <label for="title"> Expiry</label>
-                                <input type="text" class="form-control" name="expiry" value=<%= items[i].date%> disabled</input>
-                            </div>
+                    <div class="form-group">
+                        <label for="title"> Item</label>
+                        <input type="text" class="form-control" name="title" value=<%= items[i].title %> disabled></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="point"> Points</label>
+                        <input type="text" class="form-control" name="point" value=<%= items[i].points%> points disabled></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="description"> Description</label>
+                        <input type="text" class="form-control" name="description" value=<%= items[i].description %> disabled></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="title"> Expiry</label>
+                        <input type="text" class="form-control" name="expiry" value=<%= items[i].date%> disabled</input>
+                    </div>
 
-                            <div class="form-group">
-                                <textarea class="form-control" type= number name=index style="display:none;"> <%=i %></textarea>
-                            </div>
+                    <div class="form-group">
+                        <textarea class="form-control" type= number name=index style="display:none;"> <%=i %></textarea>
+                    </div>
 
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-default">Add to Cart</button>
-                            </div>
-                        </div>
-                    </form>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default">Add to Cart</button>
+                    </div>
                 </div>
-            </div>
+            </form>
+        </div>
+    </div>
 
             <% } %>
                 <% } else { %>
