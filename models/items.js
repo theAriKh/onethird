@@ -7,10 +7,10 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
-    photo: {
-        type: String,
-        required: true
-    },
+    // photo: {
+    //     type: String,
+    //     required: true
+    // },
     description: {
         type: String,
         required:true
@@ -22,7 +22,7 @@ const ItemSchema = new Schema({
     points:{
         type: Number,
         required: true
-    },
+    }
 });
 
 mongoose.model('item', ItemSchema);

@@ -4,6 +4,8 @@ const controller = require('../controllers/admin');
 
 
 
-router.get('/', controller.isAdmin)
+router.get('/index', controller.isAdmin)
+router.get('/add', controller.addItem)
+router.post('/add', controller.processItem)
 
 module.exports = router;
