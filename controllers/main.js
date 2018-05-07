@@ -19,4 +19,4 @@ var getItems = function(req, res){
 
 }
 
-module.exports.getItems = getItems
+module.exports.getItems = getItems;

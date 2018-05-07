@@ -29,3 +29,5 @@ const RecieptSchema = new Schema({
     },
     orderItems : [item]
 });
+
+mongoose.model('reciept', RecieptSchema);
