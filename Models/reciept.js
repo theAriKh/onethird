@@ -28,4 +28,4 @@ const RecieptSchema = new Schema({
         required: true
     },
     orderItems : [item]
-})
+});
