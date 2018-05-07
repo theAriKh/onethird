@@ -8,7 +8,8 @@ const ItemSchema = new Schema({
         required: true
     },
     // photo: {
-    //     type: String,
+    //     data: Buffer,
+    //     contentType: String,
     //     required: true
     // },
     description: {
