@@ -10,6 +10,8 @@
 
 <body>
     <% include ../partials/navbar.ejs %>
+    <% include ../partials/msg.ejs %>
+    <% include ../partials/errors.ejs %>
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="card card-body">
@@ -25,14 +27,14 @@
                             <input type="password" name="password" class="form-control" required>
                         </div>
 
-                        <a class="btn btn-primary" href="/main">Log In</a>
-                        <!-- <button type="submit" class="btn btn-primary">Log In</button> -->
+                            <!-- <a class="btn btn-primary" href="/main">Log In</a> -->
+                        <button type="submit" class="btn btn-primary">Log In</button>
                     </form>
                 </div>
             </div>
         </div>
 
-        <% include ../partials/scripts.ejs %>
+    <% include ../partials/scripts.ejs %>
 
 
 

@@ -1,22 +1,25 @@
 const express = require('express');
 const router = express.Router();
+const controller = require('../controllers/controller');
 
 router.get('/login', (req, res) => {
-    res.render('users/login')
-})
-
-router.get('/register', (req, res) => {
-    res.render('users/register')
-})
-
-router.get('/myaccount', (req, res) => {
-    res.render('users/myaccount')
-})
-
-router.get('/logout', (req,res)=>{
-    res.redirect('/users/login')
+    res.render('users/login', {
+        errors: []
+    })
 })
 
 
+router.post('/login', controller.getUser)
+
+
+router.get('/register',controller.register)
+
+
+// create new user
+router.post('/register', controller.createUser)
+
+router.get('/myaccount', controller.getMyAccount)
+
+router.get('/logout', controller.logout)
 
 module.exports = router;
