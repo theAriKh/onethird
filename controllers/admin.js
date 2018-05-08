@@ -5,15 +5,10 @@ const Item = mongoose.model('item');
 
 
 var isAdmin = function (req, res) {
-
-
     Item.find({}).then(items=>{
-
         res.render('admin/index', {
             items: items
         })
-
-      
     })
 }
 
@@ -42,6 +37,7 @@ var processItem = function(req, res){
             title: req.body.title,
             //photo: req.body.photo,
             description: req.body.description,
+            quantity: req.body.quantity,
             date: req.body.expiryDate,
             points: req.body.points,
         })
@@ -53,9 +49,6 @@ var processItem = function(req, res){
     };
 }
 
-// var getItems = function(req, res){
-
-// }
 
 module.exports.isAdmin = isAdmin;
 module.exports.addItem = addItem;

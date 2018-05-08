@@ -10,7 +10,49 @@
 <body>
     <% include ../partials/navbar.ejs%>
     <% include ../partials/msg.ejs %>
-    <% include ../partials/scripts.ejs %>
+
+
+            <div class="header row">
+                <div class="col-sm-6">
+                    <h1>Items</h1>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Quantity</th>
+                                <th>Expiry Date</th>
+                                <th>Points</th>
+                                <th>Approved</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% for (var i = 0; i< items.length; i++){ %>
+                                <tr>
+                                        <td><%= items[i].title %></td>
+                                        <td><%= items[i].quantity %></td>
+                                        <td><%= items[i].date %></td>
+                                        <td><%= items[i].points %></td>
+                                        <td><%= items[i].approved %></td>
+                                </tr>
+
+                            <%}%>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+
+
+            <% include ../partials/scripts.ejs %>
 
 </body>
 
