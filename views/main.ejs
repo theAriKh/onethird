@@ -60,6 +60,7 @@
                         <h4 class="modal-title">Give Away</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
+
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
@@ -91,66 +92,73 @@
             </div>
         </div>
 
-        <div id="cart" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
+        <form method="post" action="users/checkout?_method=DELETE">
 
-                        <h4 class="modal-title">My Cart</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <h5>Pick-up or Delivery</h5>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Pick-Up</label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Delivery</label>
-                        </div>
-
-                        <h5>Cart</h5>
-
-                        <div class="shopping-cart">
-
-                            <% if(myitems.length > 0) {%>
-
-                                <% for (var i = 0; i < myitems.length; i++){ %>
-                                    <div class="column-labels">
-                                        <img class='thumbnail' src=<%= myitems[i].img %>>
-                                        <div class="item-info">
-                                            <p class="item-desc">
-                                                <%= myitems[i].quantity %>
-                                                    <%= myitems[i].item %>
-                                            </p>
-                                            <p class="item-price">$
-                                                <%= myitems[i].price %>
-                                            </p>
-                                        </div>
+            <div id="cart" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+        
+                                <h4 class="modal-title">My Cart</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+        
+                            <div class="modal-body">
+                                    <h5>Pick-up or Delivery</h5>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">Pick-Up</label>
                                     </div>
-
-
-                                    <% } %>
-                                        <% } else { %>
-                                            <p> Empty</p>
-                                            <% }%>
-                                                <div class="totals">
-
-                                                    <div class="totals-item totals-item-total">
-                                                        <label>Total Points</label>
-                                                        <div class="totals-value" id="cart-total"></div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">Delivery</label>
+                                    </div>
+            
+                                    <h5>Cart</h5>
+            
+                                    <div class="shopping-cart">
+            
+                                        <% if(myitems.length > 0) {%>
+            
+                                            <% for (var i = 0; i < myitems.length; i++){ %>
+                                                <div class="column-labels">
+                                                    <!-- <img class='thumbnail' src=<%= myitems[i].img %>> -->
+                                                    <div class="item-info">
+                                                        <p class="item-desc">
+                                                            <%= myitems[i].title %>
+                                                        </p>
+                                                        <p class="item-price">$
+                                                            <%= myitems[i].points %>
+                                                        </p>
                                                     </div>
                                                 </div>
+            
+            
+                                                <% } %>
+                                                    <% } else { %>
+                                                        <p> Empty</p>
+                                                        <% }%>
+                                                            <div class="totals">
+            
+                                                                <div class="totals-item totals-item-total">
+                                                                    <label>Total Points</label>
+                                                                    <div class="totals-value" id="cart-total"></div>
+                                                                </div>
+                                                            </div>
+                                    </div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <a href="/main" class="btn btn-default" role="button">Check Out</a> -->
+                                <button type="submit" class="btn btn-primary">Check Out</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <a href="/main" class="btn btn-default" role="button">Check Out</a>
-                        <!-- <button type="button" class="btn btn-default">Check Out</button> -->
-                    </div>
                 </div>
-            </div>
-        </div>
+        
+        </form>
+
+        
 
 
         <% include partials/scripts.ejs %>

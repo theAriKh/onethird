@@ -1,7 +1,9 @@
 require('../models/user');
+require('../models/items');
 
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
+const Item = mongoose.model('item');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
@@ -106,9 +108,25 @@ var register = function(req, res){
 
 }
 
+var checkout = function(req, res){
+    let myitems = req.session.myCart;
+    console.log("in check out, controler, user:", req.user)
+    console.log("in check out, controler, myitems:", myitems)
+
+    // right now only one item can be checked out...
+    Item.remove({
+        _id: myitems[0]._id
+    }).then(() => {
+        req.flash('success_msg', "Checkout was successful")
+        res.redirect('/main')
+    })
+
+}
+
 
 module.exports.createUser = createUser;
 module.exports.getUser = getUser;
 module.exports.getMyAccount = getMyAccount;
 module.exports.logout = logout;
 module.exports.register = register;
+module.exports.checkout = checkout;

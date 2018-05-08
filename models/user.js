@@ -1,6 +1,38 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const ItemSchema = new Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    // photo: {
+    //     data: Buffer,
+    //     contentType: String,
+    //     required: true
+    // },
+    description: {
+        type: String,
+        required:true
+    },
+    quantity: {
+        type: Number,
+        required:true
+    },
+    date: {
+        type: Date,
+        required:true
+    },
+    points:{
+        type: Number,
+        required: true
+    },
+    approved:{
+        type: Boolean,
+        default: false
+    }
+});
+
 // Create Schema
 const UserSchema = new Schema({
     name: {
@@ -50,7 +82,8 @@ const UserSchema = new Schema({
     admin:{
         type: Boolean,
         default: false
-    }
+    },
+    myCart: [ItemSchema]
 });
 
 mongoose.model('user', UserSchema);

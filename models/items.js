@@ -27,6 +27,10 @@ const ItemSchema = new Schema({
     points:{
         type: Number,
         required: true
+    },
+    approved:{
+        type: Boolean,
+        default: false
     }
 });
 

@@ -22,4 +22,6 @@ router.get('/myaccount', controller.getMyAccount)
 
 router.get('/logout', controller.logout)
 
+router.post('/checkout', controller.checkout)
+
 module.exports = router;

@@ -50,6 +50,8 @@
                         <textarea class="form-control" type= number name=index style="display:none;"> <%=i %></textarea>
                     </div>
 
+                    <input type="hidden" class="form-control" name="itemId" value=<%= items[i].id%> disabled</input>
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-default">Add to Cart</button>
                     </div>
