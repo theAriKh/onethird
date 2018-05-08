@@ -32,7 +32,8 @@ var addToCart = function (req, res) {
         //START FROM HERE
 
         if (req.session.myCart){
-            req.session.myCart[item._id] = item;
+            req.session.myCart.push(item);
+            console.log("added?", req.session.myCart)
         }
         else {
             let myitems = [];
