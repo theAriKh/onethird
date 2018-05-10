@@ -35,7 +35,7 @@ var processItem = function(req, res){
 
         const newItem = new Item ({
             title: req.body.title,
-            //photo: req.body.photo,
+            photo: req.body.photo,
             description: req.body.description,
             quantity: req.body.quantity,
             date: req.body.expiryDate,
