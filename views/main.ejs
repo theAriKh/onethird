@@ -24,11 +24,10 @@
         <ul class="navbar-nav mb-auto">
 
             <li class="nav-item">
-                <button type="button" class="btn btn-info btn-lg">Browse</button>
+                <a href="../main" class="btn btn-info btn-lg" role="button">Browse</a>
             </li>
             <li class="nav-item">
                 <a href="/admin/add" class="btn btn-info btn-lg" role="button">Give Away</a>
-                <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#giveaway">Give Away</button>-->
             </li>
         </ul>
     </nav>
@@ -37,11 +36,13 @@
         <div class="container browse">
             <div class="row input-group" id="search">
                 <div class="col-sm-8">
-                    <input class="form-control" id="item" type="text" placeholder="SEARCH">
-                    <span class="input-group-btn">
-                        <button class="btn btn-secondary margin-right">
+                    <form id="form" onsubmit="return false;">
+                        <input class="form-control" id="searchBar" type="text" placeholder="Search...">
+                        <span class="input-group-btn">
+                        <button onclick="searchBox()" class="btn btn-secondary margin-right">
                             <i class="fa fa-search" aria-hidden="true"></i> Search</button>
                     </span>
+                    </form>
                 </div>
 
                 <div class="col-sm-2" id="myCart">
@@ -50,8 +51,12 @@
                 </div>
 
             </div>
-            <% include partials/browse.ejs%>
-        </div>
+
+            <div id="searchContent">
+                <% include partials/browse.ejs%>
+            </div>
+
+            </div>
 
         <div id="giveaway" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -159,8 +164,12 @@
         
         </form>
 
-        
-
+        <script>
+            function searchBox() {
+                var userSearch = document.getElementById("searchBar").value;
+                document.getElementById("searchContent").innerHTML = "Searching for: " + userSearch;
+            }
+        </script>
 
         <% include partials/scripts.ejs %>
     </div>

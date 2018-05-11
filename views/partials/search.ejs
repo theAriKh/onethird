@@ -1,0 +1,90 @@
+<h1>Browse</h1>
+<div class="items" id="searchAll">
+    <% if(items.length > 0) { %>
+
+        <% for (i = 0;i < items.length;i++){ %>
+                <% if(items[i].title) { %>
+
+    <div id="test"></div>
+
+    <div class="item" data-toggle="modal" data-target="#<%= items[i].title %>item-modal">
+        <img class='thumbnail' src=<%= items[i].img %>>
+        <div class="item-info">
+            <p class="item-desc">
+                <%= items[i].title %>
+            </p>
+            <p class="item-price">
+                <%= items[i].points %> points
+            </p>
+
+        </div>
+    </div>
+
+    <div id="<%= items[i].title %>item-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <form action="/main" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Item Information</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- <img class='thumbnail' src=<%= items[i].img %>> -->
+
+                    <div class="form-group">
+                        <label for="title"> Item</label>
+                        <input type="text" class="form-control" name="title" value=<%= items[i].title %> disabled></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="point"> Points</label>
+                        <input type="text" class="form-control" name="point" value=<%= items[i].points%> points disabled></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="description"> Description</label>
+                        <input type="text" class="form-control" name="description" value=<%= items[i].description %> disabled></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="title"> Expiry</label>
+                        <input type="text" class="form-control" name="expiry" value=<%= items[i].date%> disabled</input>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" type= number name=index style="display:none;"> <%=i %></textarea>
+                    </div>
+
+                    <input type="hidden" class="form-control" name="itemId" value=<%= items[i].id%> disabled</input>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default">Add to Cart</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+            <% } %>
+
+
+        <% } %>
+    <% } else { %>
+    <h1> No items</h1>
+    <% } %>
+</div>
+
+<script>
+    function searchBox() {
+        var userSearch = document.getElementById("searchBar").value;
+        alert(items.length);
+        var i;
+        for (i = 0;i < items.length;i++) {
+            alert("hi");
+            if (items[i].title == userSearch) {
+                document.getElementById("searchAll").innerHTML = userSearch;
+            }
+        }
+    }
+</script>
+
+<% include scripts.ejs %>
