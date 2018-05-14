@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const session = require('express-session');
-
 const passport = require('passport')
 require('./config/passport')(passport)
 
@@ -55,11 +54,16 @@ app.use(bodyParser.json())
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
+
 // Use routes
 app.use('/', home);
 app.use('/users', users);
 app.use('/main', main);
 app.use('/admin',admin);
+
+
+
+
 
 const port = process.env.PORT || 5000;
 
