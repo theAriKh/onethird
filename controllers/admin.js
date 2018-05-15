@@ -31,11 +31,10 @@ var processItem = function(req, res){
             description: req.body.description
         })
     } else {
-
-
         const newItem = new Item ({
             title: req.body.title,
             photo: req.body.photo,
+            photolink: req.body.photolink,
             description: req.body.description,
             quantity: req.body.quantity,
             date: req.body.expiryDate,

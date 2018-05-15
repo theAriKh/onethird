@@ -7,6 +7,10 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
+    photolink:{
+        type: String,
+        required:true
+    },
     // photo: {
     //     data: Buffer,
     //     contentType: String,
