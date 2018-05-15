@@ -55,7 +55,7 @@
             </div>
 
             <div id="searchContent">
-                <% include partials/browse.ejs%>
+                <% include partials/search.ejs%>
             </div>
 
             </div>
@@ -169,7 +169,7 @@
 
         <script>
             function searchBox() {
-                var userSearch = document.getElementById("searchBar").value;
+                window.userSearch = document.getElementById("searchBar").value;
                 document.getElementById("searchContent").innerHTML = "Searching for: " + userSearch;
                 window.location.href= "/main/mainsearch"
             }
