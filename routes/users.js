@@ -18,18 +18,12 @@ router.post('admin/add', controllerA.processItem)
 
 
 router.post('/login', controller.getUser)
-
-
 router.get('/register',controller.register)
-
 
 // create new user
 router.post('/register', controller.createUser)
-
 router.get('/myaccount', controller.getMyAccount)
-
 router.get('/logout', controller.logout)
-
 router.post('/checkout', controller.checkout)
 
 module.exports = router;
