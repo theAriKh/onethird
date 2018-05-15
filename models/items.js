@@ -11,11 +11,10 @@ const ItemSchema = new Schema({
         type: String,
         required:true
     },
-    // photo: {
-    //     data: Buffer,
-    //     contentType: String,
-    //     required: true
-    // },
+    photo: {
+        type: BSON,
+        required: true
+    },
     description: {
         type: String,
         required:true
