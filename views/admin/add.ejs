@@ -8,10 +8,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" type="text/css" href="css/sidebar.css">
-        <link rel="stylesheet" type="text/css" href="css/shoppingcart.css">
-        <link rel="stylesheet" type="text/css" href="css/browse.css">
-        <link rel="stylesheet" type="text/css" href="css/navbar.css">
+        <!--<link rel="stylesheet" type="text/css" href="../css/sidebar.css">
+        <link rel="stylesheet" type="text/css" href="../css/shoppingcart.css">
+        <link rel="stylesheet" type="text/css" href="../css/browse.css">-->
+        <link rel="stylesheet" type="text/css" href="../css/users.css">
+        <link rel="stylesheet" type="text/css" href="../css/navbar.css">
         <title> Admin Dashboard </title>
     </head>
 
@@ -23,67 +24,70 @@
 
         <div class="whole-page">
 
-            <div class="card card-body">
-                <h3>Item</h3>
-                <form action="/admin/add" method="post">
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" required>
+                <div class="col-md-6 mx-auto">
+                    <div class="card card-body">
+                        <h3>Item</h3>
+                        <form action="/admin/add" method="post">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" name="title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" name="description" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photo">Photo</label>
+                                <input type="file" class="form-control-file" name="photo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photolink">Photo Link</label>
+                                <input type="text" class="form-control" name="photolink">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" class="form-control" name="quantity" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="expiryDate">Expiry Date</label>
+                                <input type="date" class="form-control" name="expiryDate" required>
+                            </div>
+
+                            <% if (user.admin == true ) { %>
+
+                            <div class="form-group">
+                                <label for="points">Points</label>
+                                <input type="number" class="form-control" name="points" required>
+                            </div>
+
+                            <% } else { %>
+
+                            <div class="form-group">
+                                <label for="points">Points (may be altered on review)</label>
+                                <input type="number" class="form-control" name="points" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pickupDate">Pick-Up Date</label>
+                                <input type="date" class="form-control" name="pickupDate" required>
+                            </div>
+
+                            <%} %>
+
+                            <button type="submit" class="btn btn-primary"> Submit</button>
+                        </form>
                     </div>
 
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" name="description" required></textarea>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="photo">Photo</label>
-                        <input type="file" class="form-control-file" name="photo">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="photolink">Photo Link</label>
-                        <input type="text" class="form-control" name="photolink">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <input type="number" class="form-control" name="quantity" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="expiryDate">Expiry Date</label>
-                        <input type="date" class="form-control" name="expiryDate" required>
-                    </div>
-
-                    <% if (user.admin == true ) { %>
-
-                    <div class="form-group">
-                        <label for="points">Points</label>
-                        <input type="number" class="form-control" name="points" required>
-                    </div>
-
-                    <% } else { %>
-
-                    <div class="form-group">
-                        <label for="points">Points (may be altered on review)</label>
-                        <input type="number" class="form-control" name="points" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pickupDate">Pick-Up Date</label>
-                        <input type="date" class="form-control" name="pickupDate" required>
-                    </div>
-
-                    <%} %>
-
-                    <button type="submit" class="btn btn-primary"> Submit</button>
-                </form>
+                    <% include ../partials/scripts.ejs %>
+                </div>
             </div>
 
-
-            <% include ../partials/scripts.ejs %>
-        </div>
     </body>
 
 </html>

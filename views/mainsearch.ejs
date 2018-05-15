@@ -19,16 +19,17 @@
 <% include partials/navbar.ejs%>
 <% include partials/msg.ejs %>
 
+
+
 <nav class="navbar navbar-fixed-side navbar-fixed-side-left">
 
     <ul class="navbar-nav mb-auto">
 
         <li class="nav-item">
-            <button type="button" class="btn btn-info btn-lg">Browse</button>
+            <a href="../main" class="btn btn-info btn-lg" role="button">Browse</a>
         </li>
         <li class="nav-item">
             <a href="/admin/add" class="btn btn-info btn-lg" role="button">Give Away</a>
-            <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#giveaway">Give Away</button>-->
         </li>
     </ul>
 </nav>
@@ -40,8 +41,6 @@
                 <form id="form" onsubmit="return false;">
                     <input class="form-control" id="searchBar" type="text" placeholder="Search...">
                     <span class="input-group-btn">
-                        <a href="/" class="btn btn-info btn-lg" role="button">Give Away</a>
-                        <a href="/?var=value&var2=value2" id="searchButton">Pass the variable</a>
                         <button onclick="searchBox()" class="btn btn-secondary margin-right">
                             <i class="fa fa-search" aria-hidden="true"></i> Search</button>
                     </span>
@@ -54,7 +53,11 @@
             </div>
 
         </div>
-        <% include partials/browse.ejs%>
+
+        <div id="searchContent">
+            <% include partials/search.ejs%>
+        </div>
+
     </div>
 
     <div id="giveaway" class="modal fade" role="dialog">
@@ -93,6 +96,7 @@
                     <button type="button" class="btn btn-default">Add to Cart</button>
                     <button type="button" class="btn btn-default">Check Out</button>
                 </div>
+
             </div>
         </div>
     </div>
@@ -163,8 +167,13 @@
 
     </form>
 
-
-
+    <script>
+        function searchBox() {
+            window.userSearch = document.getElementById("searchBar").value;
+            document.getElementById("searchContent").innerHTML = "Searching for: " + userSearch;
+            window.location.href= "/main/mainsearch"
+        }
+    </script>
 
     <% include partials/scripts.ejs %>
 </div>

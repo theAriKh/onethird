@@ -3,7 +3,7 @@
     <% if(items.length > 0) { %>
 
         <% for (i = 0;i < items.length;i++){ %>
-                <% if(items[i].title) { %>
+                <% if(items[i].title == "Beans") { %>
 
     <div id="test"></div>
 
@@ -73,18 +73,5 @@
     <% } %>
 </div>
 
-<script>
-    function searchBox() {
-        var userSearch = document.getElementById("searchBar").value;
-        alert(items.length);
-        var i;
-        for (i = 0;i < items.length;i++) {
-            alert("hi");
-            if (items[i].title == userSearch) {
-                document.getElementById("searchAll").innerHTML = userSearch;
-            }
-        }
-    }
-</script>
 
 <% include scripts.ejs %>
