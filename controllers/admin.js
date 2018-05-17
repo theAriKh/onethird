@@ -1,4 +1,5 @@
 require('../models/items');
+var fs = require('fs');
 
 const mongoose = require('mongoose');
 const Item = mongoose.model('item');
@@ -33,7 +34,7 @@ var processItem = function(req, res){
     } else {
         const newItem = new Item ({
             title: req.body.title,
-            photo: req.body.photo,
+            photo: fs.readFileSync(req.file.path),
             photolink: req.body.photolink,
             description: req.body.description,
             quantity: req.body.quantity,

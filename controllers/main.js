@@ -10,6 +10,7 @@ var getItems = function (req, res) {
     let myitems = [];
 
     Item.find({}).then(items => {
+        console.log("item", items)
 
         res.render('main', {
             items: items,

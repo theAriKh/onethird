@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport')
+const multer = require('multer')
 require('./config/passport')(passport)
 
 //Connect to mongoose
@@ -43,6 +44,9 @@ const home = require('./routes/home');
 const users = require('./routes/users');
 const main = require('./routes/main');
 const admin = require('./routes/admin');
+
+
+app.use(multer({dest:'./uploads/'}).single('img'))
 
 
 app.set('view engine', 'ejs');

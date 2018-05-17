@@ -10,7 +10,10 @@ router.get('/giveaway', (req,res)=>{
     res.render("giveaway");
 })
 router.get('/mainsearch', (req, res)=>{
-    res.render("mainsearch")
+
+    res.render("mainsearch", {
+        items:[]
+    })
 })
 
 router.post('/', controller.addToCart)

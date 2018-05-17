@@ -12,8 +12,7 @@ const ItemSchema = new Schema({
         required:true
     },
     photo: {
-        type: BSON,
-        required: true
+        type: Buffer
     },
     description: {
         type: String,
