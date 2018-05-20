@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport')
 const multer = require('multer')
+const methodOverride = require('method-override');
 require('./config/passport')(passport)
 
 //Connect to mongoose
@@ -54,6 +55,9 @@ app.set('view engine', 'ejs');
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+// Method override middleware
+app.use(methodOverride('_method'));
 
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')))

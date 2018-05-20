@@ -34,8 +34,8 @@ var processItem = function(req, res){
     } else {
         const newItem = new Item ({
             title: req.body.title,
-            photo: fs.readFileSync(req.file.path),
             photolink: req.body.photolink,
+            photo: fs.readFileSync(req.file.path),
             description: req.body.description,
             quantity: req.body.quantity,
             date: req.body.expiryDate,

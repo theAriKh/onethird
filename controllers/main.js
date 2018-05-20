@@ -1,23 +1,19 @@
 require('../models/items');
 require('../models/user');
-
 const mongoose = require('mongoose');
 const Item = mongoose.model('item');
 const User = mongoose.model('user');
 
 
+
 var getItems = function (req, res) {
     let myitems = [];
-
     Item.find({}).then(items => {
-        console.log("item", items)
-
+        
         res.render('main', {
             items: items,
             myitems: myitems
         })
-
-
     })
 
 }

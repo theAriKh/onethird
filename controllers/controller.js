@@ -124,9 +124,50 @@ var checkout = function(req, res){
 }
 
 
+// updates user's account info
+var updateInfo = function(req, res){
+    User.findOne({
+        _id : req.user.id
+    }).then(user=>{
+        user.name = req.body.name;
+        user.email = req.body.email;
+
+        user.save().then(user=>{
+            req.flash('success_msg', 'User Info is updated');
+            res.redirect('/users/myaccount');
+        })
+    })
+
+
+
+}
+
+
+// updates user's home address
+var updateAddress = function(req, res){
+    User.findOne({
+        _id: req.user.id
+    }).then(user=>{
+        user.streetAddress = req.body.streetAddress;
+        user.city = req.body.city;
+        user.province = req.body.province;
+        user.country = req.body.country;
+        user.postalCode = req.body.postalCode;
+        user.phoneNumber = req.body.phoneNumber;
+
+        user.save().then(user=>{
+            req.flash('success_msg', 'User Address is updated');
+            res.redirect('/users/myaccount');
+        })
+    })
+}
+
+
 module.exports.createUser = createUser;
 module.exports.getUser = getUser;
 module.exports.getMyAccount = getMyAccount;
 module.exports.logout = logout;
 module.exports.register = register;
 module.exports.checkout = checkout;
+module.exports.updateInfo = updateInfo;
+module.exports.updateAddress = updateAddress;
