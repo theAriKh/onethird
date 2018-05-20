@@ -9,7 +9,7 @@ const User = mongoose.model('user');
 var getItems = function (req, res) {
     let myitems = [];
     Item.find({}).then(items => {
-        
+
         res.render('main', {
             items: items,
             myitems: myitems
@@ -19,16 +19,16 @@ var getItems = function (req, res) {
 }
 
 var addToCart = function (req, res) {
-    
+
 
     Item.findOne({
         _id: req.body.itemId
     }).then(item => {
-        
+
         // need to figure out how to save myCart
         //START FROM HERE
 
-        if (req.session.myCart){
+        if (req.session.myCart) {
             req.session.myCart.push(item);
             console.log("added?", req.session.myCart)
         }
@@ -80,7 +80,50 @@ var checkout = function (req, res) {
     // res.redirect('/')
 
 }
+var searchItem = function (req, res) {
+
+    if (req.session.myCart == null) {
+        req.session.myCart = []
+    }
+
+
+    if (req.query.search) {
+
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+
+        Item.find({
+            "title": regex
+        }).then((items) => {
+            console.log("In search item", req.query.search)
+            res.render('main', {
+                items: items,
+                myitems: req.session.myCart
+            })
+            console.log("here", items)
+        })
+        console.log("Searching")
+
+    }
+    else {
+
+        Item.find({}).then(items => {
+
+            res.render('main', {
+                items: items,
+                myitems: req.session.myCart
+            })
+        })
+
+    }
+}
+
+
+// this function is taken from https://stackoverflow.com/questions/38421664/fuzzy-searching-with-mongodb
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports.getItems = getItems;
 module.exports.addToCart = addToCart;
 module.exports.checkout = checkout;
+module.exports.searchItem = searchItem;

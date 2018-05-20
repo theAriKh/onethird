@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -19,8 +21,6 @@
     <% include partials/navbar.ejs%>
     <% include partials/msg.ejs %>
 
-
-
     <nav class="navbar navbar-fixed-side navbar-fixed-side-left">
 
         <ul class="navbar-nav mb-auto">
@@ -37,14 +37,15 @@
     <div class="whole-page">
         <div class="container browse">
             <div class="row input-group" id="search">
+
                 <div class="col-sm-8">
-                    <form id="form" onsubmit="return false;">
-                        <input class="form-control" id="searchBar" type="text" placeholder="Search...">
+
+                    <form action="/main/search" method="GET">
+                        <input class="form-control" name = "search" type="text" placeholder="Search...">
                         <span class="input-group-btn">
-                        
-                            <button onclick="searchBox()" class="btn btn-secondary margin-right">
+                            <button type="submit" class="btn btn-secondary margin-right">
                             <i class="fa fa-search" aria-hidden="true"></i> Search</button>
-                    </span>
+                        </span>
                     </form>
                 </div>
 
