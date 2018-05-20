@@ -33,7 +33,7 @@ label {
 
 #myCart{
     position: relative;
-    margin-left: auto;
+    /* margin-left: auto; */
 }
 .input-group{
     position: relative;
