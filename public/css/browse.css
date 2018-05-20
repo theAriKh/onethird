@@ -21,6 +21,12 @@ body{
     overflow: auto;
 }
 
+label {
+    display: inline-block;
+    text-align: right;
+    width: 140px;
+}
+
 .browse{
     margin-left: 156.98px;
 }

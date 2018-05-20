@@ -125,7 +125,7 @@ var checkout = function(req, res){
                     _id: myitems[0]._id
                 }).then(() => {
                     req.flash('success_msg', "Checkout was successful")
-                    res.redirect('/')
+                    res.redirect('/main')
                 })
             })
 

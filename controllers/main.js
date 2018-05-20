@@ -3,6 +3,7 @@ require('../models/user');
 const mongoose = require('mongoose');
 const Item = mongoose.model('item');
 const User = mongoose.model('user');
+const moment = require('moment');
 
 
 
@@ -11,6 +12,7 @@ var getItems = function (req, res) {
     Item.find({}).then(items => {
 
         res.render('main', {
+            moment:moment,
             items: items,
             myitems: myitems
         })
@@ -106,6 +108,7 @@ var searchItem = function (req, res) {
         }).then((items) => {
             console.log("In search item", req.query.search)
             res.render('main', {
+                moment:moment,
                 items: items,
                 myitems: req.session.myCart
             })
@@ -127,6 +130,11 @@ var searchItem = function (req, res) {
     }
 }
 
+var getImage = function(req, res){
+
+    //res.send()
+}
+
 
 // this function is taken from https://stackoverflow.com/questions/38421664/fuzzy-searching-with-mongodb
 function escapeRegex(text) {
@@ -137,3 +145,4 @@ module.exports.getItems = getItems;
 module.exports.addToCart = addToCart;
 //module.exports.checkout = checkout;
 module.exports.searchItem = searchItem;
+module.exports.getImage = getImage;

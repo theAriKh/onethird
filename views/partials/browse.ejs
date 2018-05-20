@@ -3,7 +3,7 @@
     <% if(items.length > 0) { %>
         <% for (i = 0;i < items.length;i++){ %>
             <div class="item" data-toggle="modal" data-target="#<%= items[i].title %>item-modal">
-                <img class='thumbnail' src=<%= items[i].photo %>>
+                <img class='thumbnail' src=<%= items[i].photolink %>>
                 <div class="item-info">
                     <p class="item-desc">
                         <%= items[i].title %>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="title"> Expiry</label>
-                        <input type="text" class="form-control" name="expiry" value=<%= items[i].date%> disabled</input>
+                        <input type="date" class="form-control" name="expiry" value=<%= moment(items[i].date).format('YYYY-MM-DD')%> disabled></input>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" type= number name=index style="display:none;"> <%=i %></textarea>
