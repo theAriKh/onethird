@@ -54,32 +54,42 @@ var addToCart = function (req, res) {
 
 }
 
-var checkout = function (req, res) {
-    let myitems = req.session.myCart;
-    console.log("in check out,main, myitems:", myitems)
+// var checkout = function (req, res) {
+//     let myitems = req.session.myCart;
+//     console.log("in check out,main, myitems:", myitems)
 
-    // right now only one item can be checked out...
-    Item.remove({
-        _id: myitems[0]._id
-    }).then(() => {
-        req.flash('success_msg', "Checkout was successful")
-        res.redirect('/')
-    })
+//     // right now only one item can be checked out...
+
+//     User.findById({
+//         _id: req.user.id
+//     }).then(user=>{
+//         user.points = user.points - myitems[0].points
+//         user.save().then(()=>{
+//             Item.remove({
+//                 _id: myitems[0]._id
+//             }).then(() => {
+            
+//                 req.flash('success_msg', "Checkout was successful")
+//                 res.redirect('/')
+//             })
+//         })
+//     })
+   
 
 
-    // for (i = 0; i< myitems.length; i++){
-    //     Item.remove({
-    //         _id: myitems[i].itemId
-    //     }).then(()=>{
-    //         console.log("REMOVED")
-    //         next();
-    //     })
-    // }
+//     // for (i = 0; i< myitems.length; i++){
+//     //     Item.remove({
+//     //         _id: myitems[i].itemId
+//     //     }).then(()=>{
+//     //         console.log("REMOVED")
+//     //         next();
+//     //     })
+//     // }
 
-    // req.flash('success_msg', "Checkout was successful")
-    // res.redirect('/')
+//     // req.flash('success_msg', "Checkout was successful")
+//     // res.redirect('/')
 
-}
+// }
 var searchItem = function (req, res) {
 
     if (req.session.myCart == null) {
@@ -125,5 +135,5 @@ function escapeRegex(text) {
 
 module.exports.getItems = getItems;
 module.exports.addToCart = addToCart;
-module.exports.checkout = checkout;
+//module.exports.checkout = checkout;
 module.exports.searchItem = searchItem;

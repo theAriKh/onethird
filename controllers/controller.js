@@ -114,11 +114,28 @@ var checkout = function(req, res){
     console.log("in check out, controler, myitems:", myitems)
 
     // right now only one item can be checked out...
-    Item.remove({
-        _id: myitems[0]._id
-    }).then(() => {
-        req.flash('success_msg', "Checkout was successful")
-        res.redirect('/main')
+    User.findById({
+        _id: req.user.id
+    }).then(user=>{
+
+        if (user.points >= myitems[0].points){
+            user.points = user.points - myitems[0].points;
+            user.save().then(()=>{
+                Item.remove({
+                    _id: myitems[0]._id
+                }).then(() => {
+                    req.flash('success_msg', "Checkout was successful")
+                    res.redirect('/')
+                })
+            })
+
+        }
+        else {
+            req.flash('error_msg', "Sorry, you don't have enough points to checkout. ")
+            res.redirect('/main')
+            
+        }
+     
     })
 
 }

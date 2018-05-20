@@ -40,7 +40,7 @@
 
                 <div class="col-sm-8">
 
-                    <form action="/main/search" method="GET">
+                    <form action="/main/search" method="GET" class = "form-inline">
                         <input class="form-control" name = "search" type="text" placeholder="Search...">
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-secondary margin-right">
@@ -104,7 +104,7 @@
         </div>
 
         <form method="post" action="users/checkout?_method=DELETE">
-
+            <input type="hidden" name="_method" value="DELETE">
             <div id="cart" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">

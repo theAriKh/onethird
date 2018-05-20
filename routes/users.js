@@ -24,7 +24,7 @@ router.get('/register',controller.register)
 router.post('/register', controller.createUser)
 router.get('/myaccount', controller.getMyAccount)
 router.get('/logout', controller.logout)
-router.post('/checkout', controller.checkout)
+router.delete('/checkout', controller.checkout)
 
 
 router.put('/myaccount/info', controller.updateInfo)
