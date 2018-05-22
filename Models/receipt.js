@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const item = require('items.js');
+const items = require('mongoose').model('item');
 
 const RecieptSchema = new Schema({
     name: {
@@ -27,7 +27,11 @@ const RecieptSchema = new Schema({
         type: String,
         required: true
     },
-    orderItems : [item]
+    date:{
+        type: Date,
+        required: true
+    },
+    orderItems : [items]
 });
 
-mongoose.model('reciept', RecieptSchema);
+mongoose.model('receipt', RecieptSchema);
