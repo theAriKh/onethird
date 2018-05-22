@@ -133,15 +133,18 @@
             
                                             <% for (var i = 0; i < myitems.length; i++){ %>
                                                 <div class="column-labels">
-                                                    <!-- <img class='thumbnail' src=<%= myitems[i].img %>> -->
-                                                    <div class="item-info">
-                                                        <p class="item-desc">
+                                                    <hr>
+                                                    <div class="checkout-item">
+                                                        <div class="checkout-text">
                                                             <%= myitems[i].title %>
-                                                        </p>
-                                                        <p class="item-price">
-                                                            <%= myitems[i].points %> points
-                                                        </p>
+                                                            <br>
+                                                            <%= myitems[i].points %> point(s)
+                                                        </div>
+                                                        <div class="checkout-img">
+                                                            <img class='thumbnail photo-right' src=<%= myitems[i].photolink %>>
+                                                        </div>
                                                     </div>
+                                                    <hr>
                                                 </div>
             
             
