@@ -33,7 +33,11 @@ const ItemSchema = new Schema({
     approved:{
         type: Boolean,
         default: false
-    }
+    },
+    userid:{
+        type: String,
+        required: true
+    } 
 });
 
 mongoose.model('item', ItemSchema);

@@ -117,12 +117,19 @@ var checkout = function(req, res){
     User.findById({
         _id: req.user.id
     }).then(user=>{
+        let ids = [];
+        let totalpoints = 0;
 
-        if (user.points >= myitems[0].points){
-            user.points = user.points - myitems[0].points;
+        for( var i = 0; i < myitems.length; i++){
+            ids.push(myitems[i]._id);
+            totalpoints += myitems[i].points
+        }
+
+        if (user.points >= totalpoints){
+            user.points = user.points - totalpoints;
             user.save().then(()=>{
                 Item.remove({
-                    _id: myitems[0]._id
+                    _id: {$in: ids}
                 }).then(() => {
                     req.flash('success_msg', "Checkout was successful")
                     res.redirect('/main')

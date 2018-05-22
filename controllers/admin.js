@@ -1,8 +1,10 @@
 require('../models/items');
+require('../models/user');
 var fs = require('fs');
 
 const mongoose = require('mongoose');
 const Item = mongoose.model('item');
+const User = mongoose.model('user');
 
 
 var isAdmin = function (req, res) {
@@ -40,11 +42,26 @@ var processItem = function(req, res){
             quantity: req.body.quantity,
             date: req.body.expiryDate,
             points: req.body.points,
+            userid: req.user.id
         })
 
+
+
         new Item(newItem).save().then(item=>{
-            req.flash('success_msg', 'Item is added');
-            res.redirect('/admin/index')
+
+            User.findById({
+                _id: req.user.id
+            }).then(user=>{
+                user.points = user.points + req.body.points
+                user.save().then(()=>{
+                    
+                    req.flash('success_msg', 'Item is added');
+                    res.redirect('/admin/index')
+
+                })
+                
+            })
+            
         })
     };
 }

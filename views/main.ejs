@@ -138,8 +138,8 @@
                                                         <p class="item-desc">
                                                             <%= myitems[i].title %>
                                                         </p>
-                                                        <p class="item-price">$
-                                                            <%= myitems[i].points %>
+                                                        <p class="item-price">
+                                                            <%= myitems[i].points %> points
                                                         </p>
                                                     </div>
                                                 </div>
@@ -149,18 +149,16 @@
                                                     <% } else { %>
                                                         <p> Empty</p>
                                                         <% }%>
-                                                            <div class="totals">
-            
-                                                                <div class="totals-item totals-item-total">
-                                                                    <label>Total Points</label>
-                                                                    <div class="totals-value" id="cart-total"></div>
-                                                                </div>
-                                                            </div>
+                                                            
                                     </div>
                                 
                             </div>
                             <div class="modal-footer">
-                                <!-- <a href="/main" class="btn btn-default" role="button">Check Out</a> -->
+                                    <div class="totals">
+                                          <label id= "total-points">Total Points</label>
+                                          <input type="number" id="cart-total" value= <%= totalpoints%>  disabled>
+                                        </div>
+                               
                                 <button type="submit" class="btn btn-primary">Check Out</button>
                             </div>
                         </div>

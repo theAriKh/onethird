@@ -8,27 +8,31 @@ const moment = require('moment');
 
 
 var getItems = function (req, res) {
+    if (req.session.totalpoints == null) {
+        req.session.totalpoints = 0;
+    }
+
     let myitems = [];
+    let totalpoints = req.session.totalpoints
     Item.find({}).then(items => {
 
         res.render('main', {
             moment:moment,
             items: items,
-            myitems: myitems
+            myitems: myitems,
+            totalpoints: totalpoints
         })
     })
 
 }
 
 var addToCart = function (req, res) {
+    let totalpoints = req.session.totalpoints
 
 
     Item.findOne({
         _id: req.body.itemId
     }).then(item => {
-
-        // need to figure out how to save myCart
-        //START FROM HERE
 
         if (req.session.myCart) {
             req.session.myCart.push(item);
@@ -38,7 +42,11 @@ var addToCart = function (req, res) {
             let myitems = [];
             myitems.push(item);
             req.session.myCart = myitems;
+            req.session.totalpoints += item.points
+            console.log('before', req.session.totalpoints)
+            console.log("total points", req.session.totalpoints)
             console.log("In add cart", req.session.myCart)
+            req.flash('success_msg', "Item is added successfully")
 
         }
 
@@ -46,52 +54,17 @@ var addToCart = function (req, res) {
         Item.find({}).then(items => {
 
             req.flash('success_msg', "Item is added successfully")
-            console.log("helllloo")
             res.render('main', {
+                moment: moment,
                 items: items,
-                myitems: req.session.myCart
+                myitems: req.session.myCart,
+                totalpoints: totalpoints
             })
         })
     })
 
 }
 
-// var checkout = function (req, res) {
-//     let myitems = req.session.myCart;
-//     console.log("in check out,main, myitems:", myitems)
-
-//     // right now only one item can be checked out...
-
-//     User.findById({
-//         _id: req.user.id
-//     }).then(user=>{
-//         user.points = user.points - myitems[0].points
-//         user.save().then(()=>{
-//             Item.remove({
-//                 _id: myitems[0]._id
-//             }).then(() => {
-            
-//                 req.flash('success_msg', "Checkout was successful")
-//                 res.redirect('/')
-//             })
-//         })
-//     })
-   
-
-
-//     // for (i = 0; i< myitems.length; i++){
-//     //     Item.remove({
-//     //         _id: myitems[i].itemId
-//     //     }).then(()=>{
-//     //         console.log("REMOVED")
-//     //         next();
-//     //     })
-//     // }
-
-//     // req.flash('success_msg', "Checkout was successful")
-//     // res.redirect('/')
-
-// }
 var searchItem = function (req, res) {
 
     if (req.session.myCart == null) {
@@ -112,7 +85,6 @@ var searchItem = function (req, res) {
                 items: items,
                 myitems: req.session.myCart
             })
-            console.log("here", items)
         })
         console.log("Searching")
 
@@ -123,7 +95,9 @@ var searchItem = function (req, res) {
 
             res.render('main', {
                 items: items,
-                myitems: req.session.myCart
+                myitems: req.session.myCart,
+                moment: moment,
+                totalpoints: req.session.totalpoints
             })
         })
 
