@@ -147,7 +147,18 @@
                                                         <div class="checkout-img">
                                                             <img class='thumbnail photo-right' src=<%= myitems[key].photolink %>>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary">Remove</button>
+                                                        <input type="hidden" name="remove" value=<%= myitems[key]._id%>>
+                                                        <button type="submit" class="btn btn-secondary" id=<%= myitems[key]._id%>>Remove</button>
+
+                                                        <script>
+                                                            $("button").click(function(){
+                                                            
+                                          
+                                                                
+
+                                                            })
+                                                        
+                                                        </script>
                                                     </div>
                                                     <hr>
                                                 </div>
@@ -170,21 +181,13 @@
                                           <input type="number" id="cart-total" value= <%= totalpoints%>  disabled>
                                         </div>
                                
-                                <button type="submit" class="btn btn-primary">Check Out</button>
+                                <button type="submit" class="btn btn-primary" value="checkout">Check Out</button>
                             </div>
                         </div>
                     </div>
                 </div>
         
         </form>
-
-        <script>
-            function searchBox() {
-                window.userSearch = document.getElementById("searchBar").value;
-                document.getElementById("searchContent").innerHTML = "Searching for: " + userSearch;
-                window.location.href= "/main/mainsearch"
-            }
-        </script>
 
         <% include partials/scripts.ejs %>
     </div>

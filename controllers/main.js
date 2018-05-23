@@ -30,18 +30,24 @@ var addToCart = function (req, res) {
     let totalpoints = req.session.totalpoints
     let myitems = {};
 
+    
+    // console.log("which button", req.params)
+    // console.log("which button", req.params.id)
+    // console.log("which button", req.body)
+    // console.log("which button", req.query)
+
 
     Item.findOne({
         _id: req.body.itemId
     }).then(item => {
 
         if (req.session.myCart) {
-            myitems[item._id]=item
-            req.session.myCart=myitems;
+            req.session.myCart[item._id]=item;
             req.session.totalpoints += item.points
+            console.log("checking cart items", req.session.myCart)
         }
         else {
-            console.log("here", req.session.myCart)
+            console.log("cheking cart item first", req.session.myCart)
             req.session.myCart = {}
             console.log("length", Object.keys(req.session.myCart).length)
             req.session.myCart[item._id] = item;

@@ -109,41 +109,59 @@ var register = function(req, res){
 }
 
 var checkout = function(req, res){
+
+    
+    if (req.body["remove"]){
+        console.log("checkout", req.body["remove"])
+        delete req.session.myCart[req.body["remove"]]
+
+        req.session.totalpoints -= req.session.myCart[req.body["remove"].points]
+        console.log("after remove", req.session.myCart)
+        req.flash('success_msg', "The item was removed from your cart")
+        res.redirect('/main')
+
+
+    }
+    else {
+        User.findById({
+            _id: req.user.id
+        }).then(user=>{
+            let ids = [];
+            let totalpoints = 0;
+    
+            for( var i = 0; i < myitems.length; i++){
+                ids.push(myitems[i]._id);
+                totalpoints += myitems[i].points
+            }
+    
+            if (user.points >= totalpoints){
+                user.points = user.points - totalpoints;
+                user.save().then(()=>{
+                    Item.remove({
+                        _id: {$in: ids}
+                    }).then(() => {
+                        req.flash('success_msg', "Checkout was successful")
+                        res.redirect('/main')
+                    })
+                })
+    
+            }
+            else {
+                req.flash('error_msg', "Sorry, you don't have enough points to checkout. ")
+                res.redirect('/main')
+                
+            }
+         
+        })
+
+    }
     let myitems = req.session.myCart;
     console.log("in check out, controler, user:", req.user)
+    console.log("in check out, controler, user:", req.body)
     console.log("in check out, controler, myitems:", myitems)
 
-    // right now only one item can be checked out...
-    User.findById({
-        _id: req.user.id
-    }).then(user=>{
-        let ids = [];
-        let totalpoints = 0;
 
-        for( var i = 0; i < myitems.length; i++){
-            ids.push(myitems[i]._id);
-            totalpoints += myitems[i].points
-        }
 
-        if (user.points >= totalpoints){
-            user.points = user.points - totalpoints;
-            user.save().then(()=>{
-                Item.remove({
-                    _id: {$in: ids}
-                }).then(() => {
-                    req.flash('success_msg', "Checkout was successful")
-                    res.redirect('/main')
-                })
-            })
-
-        }
-        else {
-            req.flash('error_msg', "Sorry, you don't have enough points to checkout. ")
-            res.redirect('/main')
-            
-        }
-     
-    })
 
 }
 
