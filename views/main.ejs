@@ -148,7 +148,7 @@
                                                             <img class='thumbnail photo-right' src=<%= myitems[key].photolink %>>
                                                         </div>
                                                         <input type="hidden" name="remove" value=<%= myitems[key]._id%>>
-                                                        <button type="submit" class="btn btn-secondary" id=<%= myitems[key]._id%>>Remove</button>
+                                                        <button type="submit" class="btn btn-secondary" name="button" value="remove" id=<%= myitems[key]._id%>>Remove</button>
 
                                                         <script>
                                                             $("button").click(function(){
@@ -180,8 +180,8 @@
                                           <label id= "total-points">Total Points</label>
                                           <input type="number" id="cart-total" value= <%= totalpoints%>  disabled>
                                         </div>
-                               
-                                <button type="submit" class="btn btn-primary" value="checkout">Check Out</button>
+                                <input type="hidden" name="checkout">
+                                <button type="submit" class="btn btn-primary" name="button" value="checkout">Check Out</button>
                             </div>
                         </div>
                     </div>

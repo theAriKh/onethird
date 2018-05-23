@@ -9,18 +9,19 @@ const moment = require('moment');
 
 var getItems = function (req, res) {
     if (req.session.totalpoints == null) {
+        console.log("here in get items")
         req.session.totalpoints = 0;
     }
-
-    let myitems = {};
-    let totalpoints = req.session.totalpoints
+    if(req.session.myCart == null){
+        req.session.myCart = {}
+    } 
     Item.find({}).then(items => {
 
         res.render('main', {
             moment:moment,
             items: items,
-            myitems: myitems,
-            totalpoints: totalpoints
+            myitems: req.session.myCart,
+            totalpoints: req.session.totalpoints
         })
     })
 
@@ -28,14 +29,7 @@ var getItems = function (req, res) {
 
 var addToCart = function (req, res) {
     let totalpoints = req.session.totalpoints
-    let myitems = {};
-
-    
-    // console.log("which button", req.params)
-    // console.log("which button", req.params.id)
-    // console.log("which button", req.body)
-    // console.log("which button", req.query)
-
+    let myitems = req.session.myCart;
 
     Item.findOne({
         _id: req.body.itemId
@@ -47,14 +41,10 @@ var addToCart = function (req, res) {
             console.log("checking cart items", req.session.myCart)
         }
         else {
-            console.log("cheking cart item first", req.session.myCart)
+            // dont think need this
             req.session.myCart = {}
-            console.log("length", Object.keys(req.session.myCart).length)
             req.session.myCart[item._id] = item;
             req.session.totalpoints += item.points
-            console.log('before', req.session.totalpoints)
-            console.log("total points", req.session.totalpoints)
-            console.log("In add cart", req.session.myCart)
             req.flash('success_msg', "Item is added successfully")
 
         }
@@ -67,7 +57,7 @@ var addToCart = function (req, res) {
                 moment: moment,
                 items: items,
                 myitems: req.session.myCart,
-                totalpoints: totalpoints
+                totalpoints: req.session.totalpoints
             })
         })
     })
@@ -75,9 +65,10 @@ var addToCart = function (req, res) {
 }
 
 var searchItem = function (req, res) {
+    
 
     if (req.session.myCart == null) {
-        req.session.myCart = []
+        req.session.myCart = {}
     }
 
 
@@ -92,11 +83,10 @@ var searchItem = function (req, res) {
             res.render('main', {
                 moment:moment,
                 items: items,
-                myitems: req.session.myCart
+                myitems: req.session.myCart,
+                totalpoints: req.session.totalpoints
             })
         })
-        console.log("Searching")
-
     }
     else {
 
@@ -126,6 +116,5 @@ function escapeRegex(text) {
 
 module.exports.getItems = getItems;
 module.exports.addToCart = addToCart;
-//module.exports.checkout = checkout;
 module.exports.searchItem = searchItem;
 module.exports.getImage = getImage;
