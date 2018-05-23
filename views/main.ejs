@@ -132,23 +132,31 @@
             
                                     <div class="shopping-cart">
             
-                                        <% if(myitems.length > 0) {%>
+                                        <% if(Object.keys(myitems).length > 0) {%>
             
-                                            <% for (var i = 0; i < myitems.length; i++){ %>
+                                            <% Object.keys(myitems).forEach(key=>{ %>
+
                                                 <div class="column-labels">
-                                                    <!-- <img class='thumbnail' src=<%= myitems[i].img %>> -->
-                                                    <div class="item-info">
-                                                        <p class="item-desc">
-                                                            <%= myitems[i].title %>
-                                                        </p>
-                                                        <p class="item-price">
-                                                            <%= myitems[i].points %> points
-                                                        </p>
+                                                    <hr>
+                                                    <div class="checkout-item">
+                                                        <div class="checkout-text">
+                                                            <%= myitems[key].title %>
+                                                            <br>
+                                                            <%= myitems[key].points %> point(s)
+                                                        </div>
+                                                        <div class="checkout-img">
+                                                            <img class='thumbnail photo-right' src=<%= myitems[key].photolink %>>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Remove</button>
                                                     </div>
+                                                    <hr>
                                                 </div>
+
+                                            <% }) %>
+                                              
+
             
-            
-                                                <% } %>
+                         
                                                     <% } else { %>
                                                         <p> Empty</p>
                                                         <% }%>
