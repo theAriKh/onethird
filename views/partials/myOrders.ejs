@@ -1,1 +1,20 @@
-<h1>My Orders</h1>
+<h1>my orders</h1>
+<% for (i = 0; i < purchasehistory.receipts.length; i ++) { %>
+<div class = "container">
+    <h2>purchaseHistory.receipts[i].dateTime</h2>
+    <h3>Delivered to: </h3>
+    <div class = "container">
+        <table class = "table">
+            <tr>
+                <th>item</th>
+                <th>price</th>
+            </tr>
+            <% for (j = 0; j < purchasehistory.receipts.orderItems.length; j++) { %>
+            <tr><%=purchasehistory.receipts[i].orderitems[j].title%></tr>
+            <tr><%=purchasehistory.receipts[i].orderitems[j].price%></tr>
+            <% } %>
+        </table>
+    </div>
+
+</div>
+<% } %>

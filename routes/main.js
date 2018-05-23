@@ -13,7 +13,9 @@ router.get('/giveaway', (req,res)=>{
 
 router.get('/search', controller.searchItem)
 
-
+router.get('/myOrders', (req,res)=>{
+    res.render("myOrders");
+})
 
 // router.get('/mainsearch', (req, res)=>{
 
