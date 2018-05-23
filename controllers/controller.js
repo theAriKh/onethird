@@ -110,17 +110,11 @@ var register = function(req, res){
 
 var checkout = function(req, res){
     let inputValue = req.body.button;
+    console.log("checkout: ", req.body.button)
     console.log("inputvalue", inputValue)
-    if (inputValue == "remove"){
-
-        delete req.session.myCart[req.body["remove"]]
-        req.session.totalpoints -= req.session.myCart[req.body["remove"].points]
-        req.flash('success_msg', "The item was removed from your cart")
-        res.redirect('/main')
 
 
-    }
-    else if (inputValue == "checkout") {
+    if (inputValue == "checkout"){
         User.findById({
             _id: req.user.id
         }).then(user=>{
@@ -154,8 +148,19 @@ var checkout = function(req, res){
          
         })
 
+    } else {
+
+        console.log("in remove", req.body.button)
+        console.log("before", req.session.myCart)
+        req.session.totalpoints -= req.session.myCart[inputValue].points
+        delete req.session.myCart[req.body.button]
+        console.log("prining my cart", req.session.myCart)
+        console.log("cart after removed", req.session.myCart[inputValue])
+       
+        req.flash('success_msg', "The item was removed from your cart")
+        res.redirect('/main')
+
     }
-    let myitems = req.session.myCart;
 }
 
 
