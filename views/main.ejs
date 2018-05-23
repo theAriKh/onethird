@@ -129,26 +129,31 @@
             
                                     <div class="shopping-cart">
             
-                                        <% if(myitems.length > 0) {%>
+                                        <% if(Object.keys(myitems).length > 0) {%>
             
-                                            <% for (var i = 0; i < myitems.length; i++){ %>
+                                            <% Object.keys(myitems).forEach(key=>{ %>
+
                                                 <div class="column-labels">
                                                     <hr>
                                                     <div class="checkout-item">
                                                         <div class="checkout-text">
-                                                            <%= myitems[i].title %>
+                                                            <%= myitems[key].title %>
                                                             <br>
-                                                            <%= myitems[i].points %> point(s)
+                                                            <%= myitems[key].points %> point(s)
                                                         </div>
                                                         <div class="checkout-img">
-                                                            <img class='thumbnail photo-right' src=<%= myitems[i].photolink %>>
+                                                            <img class='thumbnail photo-right' src=<%= myitems[key].photolink %>>
                                                         </div>
+                                                        <button type="submit" class="btn btn-primary">Remove</button>
                                                     </div>
                                                     <hr>
                                                 </div>
+
+                                            <% }) %>
+                                              
+
             
-            
-                                                <% } %>
+                         
                                                     <% } else { %>
                                                         <p> Empty</p>
                                                         <% }%>

@@ -12,7 +12,7 @@ var getItems = function (req, res) {
         req.session.totalpoints = 0;
     }
 
-    let myitems = [];
+    let myitems = {};
     let totalpoints = req.session.totalpoints
     Item.find({}).then(items => {
 
@@ -28,6 +28,7 @@ var getItems = function (req, res) {
 
 var addToCart = function (req, res) {
     let totalpoints = req.session.totalpoints
+    let myitems = {};
 
 
     Item.findOne({
@@ -35,13 +36,15 @@ var addToCart = function (req, res) {
     }).then(item => {
 
         if (req.session.myCart) {
-            req.session.myCart.push(item);
-            console.log("added?", req.session.myCart)
+            myitems[item._id]=item
+            req.session.myCart=myitems;
+            req.session.totalpoints += item.points
         }
         else {
-            let myitems = [];
-            myitems.push(item);
-            req.session.myCart = myitems;
+            console.log("here", req.session.myCart)
+            req.session.myCart = {}
+            console.log("length", Object.keys(req.session.myCart).length)
+            req.session.myCart[item._id] = item;
             req.session.totalpoints += item.points
             console.log('before', req.session.totalpoints)
             console.log("total points", req.session.totalpoints)
