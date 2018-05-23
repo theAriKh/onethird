@@ -13,6 +13,8 @@ router.get('/giveaway', (req,res)=>{
 
 router.get('/search', controller.searchItem)
 
+
+
 // router.get('/mainsearch', (req, res)=>{
 
 //     res.render("mainsearch", {

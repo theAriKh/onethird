@@ -10,4 +10,4 @@ const PurchaseHistorySchema = new Schema({
     receipts: [ReceiptSchema]
 });
 
-mongoose.model('purchaceHistory', PurchaseHistorySchema);
+mongoose.model('purchaseHistory', PurchaseHistorySchema);
