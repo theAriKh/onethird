@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Item = mongoose.model('item');
 const User = mongoose.model('user');
 const moment = require('moment');
-// const purchaseHistory = mongoose.model('purchaseHistory');
+const purchaseHistory = mongoose.model('purchaseHistory');
 
 
 var getItems = function (req, res) {
