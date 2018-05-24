@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ReceiptSchema = require('mongoose').model('receipt');
+const ReceiptSchema = mongoose.model('receipt');
+
+// A schema for recording all previous checkouts, and collating receipts.
 
 const PurchaseHistorySchema = new Schema({
-    customer:{
-        type: String,
-        required: true
+    user :{
+        type: Schema.ObjectId,
+        ref : 'user'
     },
-    receipts: [ReceiptSchema]
+    receipts : [ReceiptSchema]
 });
 
-mongoose.model('purchaseHistory', PurchaseHistorySchema);
+module.exports = mongoose.model('purchaseHistory', PurchaseHistorySchema);

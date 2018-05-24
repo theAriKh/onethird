@@ -11,11 +11,9 @@ router.get('/giveaway', (req,res)=>{
     res.render("giveaway");
 })
 
-router.get('/search', controller.searchItem)
+router.get('/search', controller.searchItem);
 
-router.get('/myOrders', (req,res)=>{
-    res.render("myOrders");
-})
+router.get('/myOrders', controller.getPurchaseHistory);
 
 // router.get('/mainsearch', (req, res)=>{
 
