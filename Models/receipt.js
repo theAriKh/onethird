@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const user = mongoose.model('user');
 const Item = mongoose.model('item');
 
 // A schema that contains information of a purchase after checkout
 const ReceiptSchema = new Schema({
     //populate user by user ID
     user : {
-        type : Schema.Types.ObjectId,
-        ref : 'user'
+        type : String,
+        required : true
     },
     // Assign date based on date/time of checkout clicked
     date:{
@@ -16,8 +15,9 @@ const ReceiptSchema = new Schema({
         default : Date.now
     },
     // Array containing all things in users cart
-    orderItems : [Item]
+    orderItems : [String]
 });
 
-mongoose.model('receipt', ReceiptSchema);
+let receipt = mongoose.model('receipt', ReceiptSchema);
 
+module.exports = {receipt : receipt};

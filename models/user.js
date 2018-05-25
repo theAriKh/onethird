@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+//const receipt = require('receipt');
 
 const ItemSchema = new Schema({
     title: {
@@ -83,7 +84,8 @@ const UserSchema = new Schema({
         type: Boolean,
         default: false
     },
-    myCart: [ItemSchema]
+    myCart: [ItemSchema],
+    myReceipts : [{type: Schema.Types.ObjectId, ref : 'receipt'}]
 });
 
 mongoose.model('user', UserSchema);

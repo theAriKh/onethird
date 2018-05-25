@@ -6,7 +6,7 @@ const User = mongoose.model('user');
 const Item = mongoose.model('item');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-//const purchaseHistory = require('../models/purchaseHistory');
+const Receipt = require('../models/receipt');
 
 var createUser = function(req, res){
     let errors = [];
@@ -126,7 +126,7 @@ var checkout = function(req, res){
         }).then(user=>{
             let ids = [];
             let totalpoints = 0;
-            
+            console.log(myitems);
             Object.keys(myitems).forEach(key=>{
                 ids.push(myitems[key]._id)
                 totalpoints += myitems[key].points
@@ -138,13 +138,18 @@ var checkout = function(req, res){
                     Item.remove({
                         _id: {$in: ids}
                     }).then(() => {
+                        receipt = new Receipt({
+                            user : req.user.id,
+                            orderItems : ids
+                        })
+
                         req.session.myCart = {};
                         req.session.totalpoints = 0;
                         req.flash('success_msg', "Checkout was successful")
                         res.redirect('/main')
                     })
                 })
-    
+
             }
             else {
                 req.flash('error_msg', "Sorry, you don't have enough points to checkout. ")
