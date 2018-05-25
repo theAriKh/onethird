@@ -14,6 +14,9 @@ var getItems = function (req, res) {
     if(req.session.myCart == null){
         req.session.myCart = {}
     } 
+
+    let myitems = {};
+    let totalpoints = req.session.totalpoints
     Item.find({}).then(items => {
 
         res.render('main', {
@@ -40,8 +43,9 @@ var addToCart = function (req, res) {
             console.log("checking cart items", req.session.myCart)
         }
         else {
-            // dont think need this
+            console.log("here", req.session.myCart)
             req.session.myCart = {}
+            console.log("length", Object.keys(req.session.myCart).length)
             req.session.myCart[item._id] = item;
             req.session.totalpoints += item.points
             req.flash('success_msg', "Item is added successfully")

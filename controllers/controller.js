@@ -6,7 +6,7 @@ const User = mongoose.model('user');
 const Item = mongoose.model('item');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-//const purchaseHistory = require('../models/purchaseHistory');
+const purchaseHistory = require('../models/purchaseHistory');
 
 var createUser = function(req, res){
     let errors = [];
@@ -138,6 +138,8 @@ var checkout = function(req, res){
                     Item.remove({
                         _id: {$in: ids}
                     }).then(() => {
+
+                        
                         req.session.myCart = {};
                         req.session.totalpoints = 0;
                         req.flash('success_msg', "Checkout was successful")
