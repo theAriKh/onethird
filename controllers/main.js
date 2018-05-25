@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Item = mongoose.model('item');
 const User = mongoose.model('user');
 const moment = require('moment');
-const purchaseHistory = mongoose.model('purchaseHistory');
 
 
 var getItems = function (req, res) {
@@ -64,16 +63,6 @@ var addToCart = function (req, res) {
 
 }
 
-var getPurchaseHistory = function(req, res){
-    purchaseHistory.find(function(err, purchaseHistory){
-        if(!err){
-            res.render("myOrders", {purchaseHistory : purchaseHistory});
-        } else{
-            res.sendStatus(404);
-        }
-    });
-}
-
 var searchItem = function (req, res) {
     
 
@@ -128,4 +117,3 @@ module.exports.getItems = getItems;
 module.exports.addToCart = addToCart;
 module.exports.searchItem = searchItem;
 module.exports.getImage = getImage;
-module.exports.getPurchaseHistory = getPurchaseHistory;

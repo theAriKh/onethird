@@ -6,6 +6,7 @@ const User = mongoose.model('user');
 const Item = mongoose.model('item');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+//const purchaseHistory = require('../models/purchaseHistory');
 
 var createUser = function(req, res){
     let errors = [];
@@ -40,7 +41,12 @@ var createUser = function(req, res){
             country: req.body.country,
             postalCode: req.body.postalCode,
             phoneNumber: req.body.phoneNumber,
-        })
+        });
+
+        // const purchaseHistory = new purchaseHistory({
+        //     user: newUser._id,
+        //     receipts : []
+        // });
 
         bcrypt.genSalt(10, (err, salt)=>{
             bcrypt.hash(newUser.password, salt, (err, hash)=>{

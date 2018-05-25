@@ -13,7 +13,6 @@ router.get('/giveaway', (req,res)=>{
 
 router.get('/search', controller.searchItem);
 
-router.get('/myOrders', controller.getPurchaseHistory);
 
 // router.get('/mainsearch', (req, res)=>{
 
