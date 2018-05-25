@@ -1,12 +1,16 @@
 require('../models/user');
 require('../models/items');
+require('../models/receipt');
 
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
 const Item = mongoose.model('item');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const purchaseHistory = require('../models/purchaseHistory');
+const Receipt = mongoose.model('receipt')
+
+//const Receipt = require('../models/receipt');
+
 
 var createUser = function(req, res){
     let errors = [];
@@ -116,6 +120,7 @@ var register = function(req, res){
 
 var checkout = function(req, res){
     let inputValue = req.body.button;
+    let myitems = req.session.myCart;
     console.log("checkout: ", req.body.button)
     console.log("inputvalue", inputValue)
 
@@ -126,7 +131,6 @@ var checkout = function(req, res){
         }).then(user=>{
             let ids = [];
             let totalpoints = 0;
-            
             Object.keys(myitems).forEach(key=>{
                 ids.push(myitems[key]._id)
                 totalpoints += myitems[key].points
@@ -134,19 +138,30 @@ var checkout = function(req, res){
  
             if (user.points >= totalpoints){
                 user.points = user.points - totalpoints;
+
+
                 user.save().then(()=>{
                     Item.remove({
                         _id: {$in: ids}
                     }).then(() => {
 
+                        const receipt = new Receipt({
+                            user : req.user.id,
+                            orderItems : ids
+                        })
+
+                        receipt.save().then(receipt=>{
+                            req.session.myCart = {};
+                            req.session.totalpoints = 0;
+                            req.flash('success_msg', "Checkout was successful")
+                            res.redirect('/main')
+
+                        })
+
                         
-                        req.session.myCart = {};
-                        req.session.totalpoints = 0;
-                        req.flash('success_msg', "Checkout was successful")
-                        res.redirect('/main')
                     })
                 })
-    
+
             }
             else {
                 req.flash('error_msg', "Sorry, you don't have enough points to checkout. ")

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+//const receipt = require('receipt');
 
 const ItemSchema = new Schema({
     title: {
