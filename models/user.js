@@ -84,8 +84,7 @@ const UserSchema = new Schema({
         type: Boolean,
         default: false
     },
-    myCart: [ItemSchema],
-    myReceipts : [{type: Schema.Types.ObjectId, ref : 'receipt'}]
+    myCart: [ItemSchema]
 });
 
 mongoose.model('user', UserSchema);

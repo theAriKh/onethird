@@ -15,7 +15,7 @@ const ReceiptSchema = new Schema({
         default : Date.now
     },
     // Array containing all things in users cart
-    orderItems : [String]
+    orderItems : [Item]
 });
 
 let receipt = mongoose.model('receipt', ReceiptSchema);

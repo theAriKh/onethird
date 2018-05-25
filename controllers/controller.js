@@ -138,10 +138,10 @@ var checkout = function(req, res){
                     Item.remove({
                         _id: {$in: ids}
                     }).then(() => {
-                        receipt = new Receipt({
+                        const receipt = new Receipt({
                             user : req.user.id,
-                            orderItems : ids
-                        })
+                            orderItems : req.session.myCart
+                        });
 
                         req.session.myCart = {};
                         req.session.totalpoints = 0;
