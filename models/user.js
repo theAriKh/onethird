@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
     title: {
-        type: String,
-        required: true
+        type: String
     },
     // photo: {
     //     data: Buffer,
@@ -14,15 +13,14 @@ const ItemSchema = new Schema({
     // },
     description: {
         type: String,
-        required:true
+        required: true
     },
     quantity: {
         type: Number,
-        required:true
+        required: true
     },
     date: {
-        type: Date,
-        required:true
+        type: Date
     },
     points:{
         type: Number,
@@ -88,3 +86,4 @@ const UserSchema = new Schema({
 });
 
 mongoose.model('user', UserSchema);
+mongoose.model('cartItem', ItemSchema);

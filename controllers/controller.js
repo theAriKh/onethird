@@ -1,12 +1,13 @@
 require('../models/user');
 require('../models/items');
+require('../models/receipt');
 
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
 const Item = mongoose.model('item');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const Receipt = require('../models/receipt');
+const Receipt = mongoose.model('receipt');
 
 var createUser = function(req, res){
     let errors = [];
@@ -43,10 +44,6 @@ var createUser = function(req, res){
             phoneNumber: req.body.phoneNumber,
         });
 
-        // const purchaseHistory = new purchaseHistory({
-        //     user: newUser._id,
-        //     receipts : []
-        // });
 
         bcrypt.genSalt(10, (err, salt)=>{
             bcrypt.hash(newUser.password, salt, (err, hash)=>{
@@ -114,11 +111,13 @@ var register = function(req, res){
 
 }
 
+
 var checkout = function(req, res){
     let inputValue = req.body.button;
+    let myitems = req.session.myCart;
     console.log("checkout: ", req.body.button)
     console.log("inputvalue", inputValue)
-
+    console.log(myitems);
 
     if (inputValue == "checkout"){
         User.findById({
@@ -126,7 +125,6 @@ var checkout = function(req, res){
         }).then(user=>{
             let ids = [];
             let totalpoints = 0;
-            console.log(myitems);
             Object.keys(myitems).forEach(key=>{
                 ids.push(myitems[key]._id)
                 totalpoints += myitems[key].points
@@ -134,6 +132,10 @@ var checkout = function(req, res){
  
             if (user.points >= totalpoints){
                 user.points = user.points - totalpoints;
+
+
+
+                console.log("here in receipt" + receipt);
                 user.save().then(()=>{
                     Item.remove({
                         _id: {$in: ids}
@@ -142,11 +144,15 @@ var checkout = function(req, res){
                             user : req.user.id,
                             orderItems : req.session.myCart
                         });
+                        receipt.save().then(receipt=>{
+                            req.session.myCart = {};
+                            req.session.totalpoints = 0;
+                            req.flash('success_msg', "Checkout was successful")
+                            res.redirect('/main')
 
-                        req.session.myCart = {};
-                        req.session.totalpoints = 0;
-                        req.flash('success_msg', "Checkout was successful")
-                        res.redirect('/main')
+                        })
+
+                        
                     })
                 })
 

@@ -42,3 +42,4 @@ const ItemSchema = new Schema({
 
 mongoose.model('item', ItemSchema);
 module.exports = ItemSchema;
+//module.exports = {item : itemexp};

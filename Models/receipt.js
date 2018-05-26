@@ -1,8 +1,11 @@
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Item = mongoose.model('item');
+const Item = mongoose.model('item').schema;
 
 // A schema that contains information of a purchase after checkout
+
+
 const ReceiptSchema = new Schema({
     //populate user by user ID
     user : {
