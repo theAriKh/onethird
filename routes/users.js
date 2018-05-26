@@ -5,11 +5,7 @@ const controller = require('../controllers/controller');
 const controllerA = require('../controllers/admin');
 
 
-router.get('/login', (req, res) => {
-    res.render('users/login', {
-        errors: []
-    })
-})
+router.get('/login', controller.login)
 
 router.get('/index', controllerA.isAdmin)
 router.get('admin/add', controllerA.addItem)

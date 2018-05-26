@@ -31,7 +31,6 @@ var getItems = function (req, res) {
 
 var addToCart = function (req, res) {
     let totalpoints = req.session.totalpoints
-    let myitems = req.session.myCart;
 
     Item.findOne({
         _id: req.body.itemId
@@ -40,7 +39,7 @@ var addToCart = function (req, res) {
         if (req.session.myCart) {
             req.session.myCart[item._id]=item;
             req.session.totalpoints += item.points
-            console.log("checking cart items", req.session.myCart)
+
         }
         else {
             console.log("here", req.session.myCart)
@@ -52,7 +51,6 @@ var addToCart = function (req, res) {
 
         }
 
-        //console.log("printing myitem",  req.user.myCart)
         Item.find({}).then(items => {
 
             req.flash('success_msg', "Item is added successfully")

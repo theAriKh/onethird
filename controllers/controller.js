@@ -88,6 +88,12 @@ var getMyAccount = function(req, res){
     }
 }
 
+var login = function(req, res){
+    res.render('users/login', {
+        errors: []
+    })
+}
+
 var logout = function(req, res){
     req.logout();
     req.flash('success_msg', "You are logged out")
@@ -224,6 +230,7 @@ module.exports.createUser = createUser;
 module.exports.getUser = getUser;
 module.exports.getMyAccount = getMyAccount;
 module.exports.logout = logout;
+module.exports.login = login;
 module.exports.register = register;
 module.exports.checkout = checkout;
 module.exports.updateInfo = updateInfo;
