@@ -1,19 +1,62 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <title>My Orders</title>
-</head>
-<body>
 
-<% include ../partials/navbar.ejs %>
-<%= receipts %>
+    <!--<link rel="stylesheet" type="text/css" href="../css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="../css/shoppingcart.css">
+    <link rel="stylesheet" type="text/css" href="../css/browse.css">-->
+    <link rel="stylesheet" type="text/css" href="../css/users.css">
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+    <title> My Orders </title>
+</head>
+
+<body>
+<% include ../partials/navbar.ejs%>
+<% include ../partials/msg.ejs %>
+<div class = "container">
+
+</div>
+
+
+<div class="whole-page">
+    <div><h1>My Orders</h1></div>
+    <div class="container">
+        <div id = "current-orders" class = "container">
+            <div><h3>Current Orders</h3></div>
+            <div>
+                <table class = "table">
+
+                    <% for(i = 0; i < receipts.length; i++) { %>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Item</th>
+                        <th>Expiry</th>
+                        <th>Points</th>
+                    </tr>
+                    <% for(var key in receipts[i]) { %>
+                    <tr>
+                        <td>Delivered to: <%= address %></td>
+                        <td><%= receipts[i].orderItems[j].quality %></td>
+                        <td><%= receipts[i].orderItems[j].title %></td>
+                        <td><%= receipts[i].orderItems[j].expiry %></td>
+                        <td><%= receipts[i].orderItems[j].price %></td>
+                    </tr>
+                    <% } %>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+        <div id = "past-orders"></div>
+    </div>
+
+</div>
 
 </body>
+
 </html>

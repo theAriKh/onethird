@@ -90,7 +90,9 @@ var getMyAccount = function(req, res){
 
 var getReceipts = function(req,res) {
     Receipt.find({user: req.user.id}).then(receipts => {
-            res.render('users/myOrders', {receipts: receipts});
+            res.render('users/myOrders', {
+                receipts : receipts,
+                address : req.user.streetAddress.concat(' ', req.user.city, ' ', req.user.province)});
             console.log(receipts);
         }
     )
