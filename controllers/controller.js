@@ -88,7 +88,13 @@ var getMyAccount = function(req, res){
     }
 }
 
-
+var getReceipts = function(req,res) {
+    Receipt.find({user: req.user.id}).then(receipts => {
+            res.render('users/myOrders', {receipts: receipts});
+            console.log(receipts);
+        }
+    )
+}
 
 var login = function(req, res){
     res.render('users/login', {

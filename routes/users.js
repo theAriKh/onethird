@@ -11,6 +11,7 @@ router.get('/index', controllerA.isAdmin)
 router.get('admin/add', controllerA.addItem)
 router.post('admin/add', controllerA.processItem)
 
+//routes receipts to my orders, will render users/myOrders
 router.get('/myOrders', controller.getReceipts)
 
 router.post('/login', controller.getUser)
