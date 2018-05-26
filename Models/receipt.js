@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Item = mongoose.model('item').schema;
+//const Item = mongoose.model('item').schema;
 
 // A schema that contains information of a purchase after checkout
 
@@ -18,7 +18,7 @@ const ReceiptSchema = new Schema({
         default : Date.now
     },
     // Array containing all things in users cart
-    orderItems : [Item]
+    orderItems : {}
 });
 
 let receipt = mongoose.model('receipt', ReceiptSchema);

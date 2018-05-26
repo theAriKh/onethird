@@ -15,7 +15,7 @@ router.get('/index', controllerA.isAdmin)
 router.get('admin/add', controllerA.addItem)
 router.post('admin/add', controllerA.processItem)
 
-
+router.get('/myOrders', controller.getReceipts)
 
 router.post('/login', controller.getUser)
 router.get('/register',controller.register)

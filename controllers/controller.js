@@ -88,6 +88,13 @@ var getMyAccount = function(req, res){
     }
 }
 
+var getReceipts = function(req,res){
+    Receipt.find({user: req.user.id}).then( receipts => {
+            res.render('users/myOrders', {receipts : receipts});
+        }
+    )
+}
+
 var logout = function(req, res){
     req.logout();
     req.flash('success_msg', "You are logged out")
@@ -135,7 +142,7 @@ var checkout = function(req, res){
 
 
 
-                console.log("here in receipt" + receipt);
+
                 user.save().then(()=>{
                     Item.remove({
                         _id: {$in: ids}
@@ -144,6 +151,7 @@ var checkout = function(req, res){
                             user : req.user.id,
                             orderItems : req.session.myCart
                         });
+                        console.log("here in receipt" + receipt);
                         receipt.save().then(receipt=>{
                             req.session.myCart = {};
                             req.session.totalpoints = 0;
@@ -228,3 +236,4 @@ module.exports.register = register;
 module.exports.checkout = checkout;
 module.exports.updateInfo = updateInfo;
 module.exports.updateAddress = updateAddress;
+module.exports.getReceipts = getReceipts;

@@ -7,6 +7,7 @@ const controller = require('../controllers/main');
 router.get('/', controller.getItems)
 router.get('/image/:id', controller.getImage)
 
+
 router.get('/giveaway', (req,res)=>{
     res.render("giveaway");
 })

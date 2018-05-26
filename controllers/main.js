@@ -1,8 +1,10 @@
 require('../models/items');
 require('../models/user');
+require('../models/receipt');
 const mongoose = require('mongoose');
 const Item = mongoose.model('item');
 const User = mongoose.model('user');
+const Receipt = mongoose.model('receipt');
 const moment = require('moment');
 
 
@@ -13,7 +15,8 @@ var getItems = function (req, res) {
     }
     if(req.session.myCart == null){
         req.session.myCart = {}
-    } 
+    }
+
 
     let myitems = {};
     let totalpoints = req.session.totalpoints
@@ -28,6 +31,7 @@ var getItems = function (req, res) {
     })
 
 }
+
 
 var addToCart = function (req, res) {
     let totalpoints = req.session.totalpoints
