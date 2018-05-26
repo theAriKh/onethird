@@ -88,11 +88,13 @@ var getMyAccount = function(req, res){
     }
 }
 
-var getReceipts = function(req,res){
-    Receipt.find({user: req.user.id}).then( receipts => {
-            res.render('users/myOrders', {receipts : receipts});
-        }
-    )
+
+
+var login = function(req, res){
+    res.render('users/login', {
+        errors: []
+    })
+
 }
 
 var logout = function(req, res){
@@ -232,6 +234,7 @@ module.exports.createUser = createUser;
 module.exports.getUser = getUser;
 module.exports.getMyAccount = getMyAccount;
 module.exports.logout = logout;
+module.exports.login = login;
 module.exports.register = register;
 module.exports.checkout = checkout;
 module.exports.updateInfo = updateInfo;
