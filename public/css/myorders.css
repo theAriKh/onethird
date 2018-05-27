@@ -1,0 +1,11 @@
+.order-table-head {
+    border-bottom: 1px #697077 solid;
+}
+
+.total-points {
+    border-top: 1px #697077 solid;
+}
+
+.order-body {
+    margin-bottom: 2%;
+}
