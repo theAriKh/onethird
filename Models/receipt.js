@@ -17,6 +17,11 @@ const ReceiptSchema = new Schema({
         type: Date,
         default : Date.now
     },
+    // Total cost of order
+    points: {
+        type: Number,
+        require : true
+    },
     // Array containing all things in users cart
     orderItems : {}
 });

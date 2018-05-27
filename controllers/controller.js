@@ -8,6 +8,7 @@ const Item = mongoose.model('item');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const Receipt = mongoose.model('receipt');
+const moment = require('moment');
 
 var createUser = function(req, res){
     let errors = [];
@@ -89,9 +90,14 @@ var getMyAccount = function(req, res){
 }
 
 var getReceipts = function(req,res) {
-    Receipt.find({user: req.user.id}).then(receipts => {
-            res.render('users/myOrders', {receipts: receipts});
-            console.log(receipts);
+    Receipt.find({user: req.user.id}).sort({date: 'descending'}).then(receipts => {
+            res.render('users/myOrders', {
+                receipts : receipts,
+                address : req.user.streetAddress.concat(' ', req.user.city, ' ', req.user.province),
+                moment: moment
+            });
+                
+            //console.log(receipts);
         }
     )
 }
@@ -156,9 +162,12 @@ var checkout = function(req, res){
                         console.log("before creating receipt, sessionI", req.session.myCart)
                         console.log("before creating receipt, myitems", req.session.myCart)              
                         const receipt = new Receipt({
-                            user : req.user._id,
-                            orderItems : tempItems
+
+                            user : req.user.id,
+                            points : totalpoints,
+                            orderItems : req.session.myCart
                         });
+
                         receipt.save().then(receipt=>{
                             req.session.myCart = {};
                             req.session.totalpoints = 0;
