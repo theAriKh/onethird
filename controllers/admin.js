@@ -52,7 +52,11 @@ var processItem = function(req, res){
             User.findById({
                 _id: req.user.id
             }).then(user=>{
-                user.points = user.points + req.body.points
+                // console.log("process item: user", typeof user.points)
+                // console.log("process item: req", typeof req.body.points)
+                // console.log("points: before", user.points)
+                user.points = user.points + parseInt(req.body.points)
+                //console.log("points: after", user.points)
                 user.save().then(()=>{
                     
                     req.flash('success_msg', 'Item is added');
