@@ -76,7 +76,7 @@ const UserSchema = new Schema({
     },
     points:{
         type: Number,
-        default: 0
+        default: 100
     },
     admin:{
         type: Boolean,
