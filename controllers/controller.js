@@ -159,6 +159,7 @@ var checkout = function(req, res){
                     }).then(() => {
                         const receipt = new Receipt({
                             user : req.user.id,
+                            points : totalpoints,
                             orderItems : req.session.myCart
                         });
                         //console.log("here in receipt" + receipt);

@@ -19,21 +19,20 @@
 <body>
 <% include ../partials/navbar.ejs%>
 <% include ../partials/msg.ejs %>
-<div class = "container">
-
-</div>
-
 
 <div class="whole-page">
     <div><h1>My Orders</h1></div>
     <!--<div class="container">-->
         <div id = "my-orders" class = "container">
             <div>
+                <% if (receipts.length < 1 ){%>
+                    <h2> You have no past orders</h2>
+                <% } %>
                 <table class = "table table-dark">
 
                     <% for(i = 0; i < receipts.length; i++) { %>
                     <thead>
-                    <tr class = "table-success">
+                    <tr class = "bg-success">
                         <th colspan = '2'>Order ID: <%= receipts[i]._id %></th>
                         <th colspan = '2'>Ordered on: <%= receipts[i].date %></th>
                     </tr>
@@ -45,6 +44,7 @@
                         <th>Expiry</th>
                         <th>Points</th>
                     </tr>
+
                         <% for(var key in receipts[i].orderItems) { %>
                         <tr>
                             <td><%= receipts[i].orderItems[key].title %></td>
@@ -53,6 +53,12 @@
                             <td><%= receipts[i].orderItems[key].points %></td>
                         </tr>
                         <% } %>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <th>Total Points: <%= receipts[i].points%></th>
+                    </tr>
                     <% } %>
                 </table>
             </div>
