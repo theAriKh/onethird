@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 
 
 const ReceiptSchema = new Schema({
-    //populate user by user ID
+    //Set user by user ID
     user : {
         type : String,
         required : true
@@ -22,7 +22,7 @@ const ReceiptSchema = new Schema({
         type: Number,
         require : true
     },
-    // Array containing all things in users cart
+    // Object containing all things in users cart upon successful checkout
     orderItems : {}
 });
 

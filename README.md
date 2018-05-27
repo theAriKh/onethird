@@ -1,4 +1,4 @@
-# INFO 30005 Project
+# INFO 30005 Project, OneThird
 This is a project by Anthony, Ari and Nick for Web Information Technolgies. It's a web application that aims to reduce food wastage. 
 
 #### Set up

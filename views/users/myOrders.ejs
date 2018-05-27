@@ -20,50 +20,50 @@
 
 <div class="whole-page">
 
-        <div class="col-md-6 mx-auto card card-body">
-            <h3 class="text-center">My Orders</h3>
+    <div class="col-md-6 mx-auto card card-body">
+        <h3 class="text-center">My Orders</h3>
 
-                <% if (receipts.length < 1 ){%>
-                    <h2> You have no past orders</h2>
+        <% if (receipts.length < 1 ){%>
+        <h2> You have no past orders</h2>
+        <% } %>
+
+        <% for(i = 0; i < receipts.length; i++) { %>
+        <div class="card card-body order-body">
+            <table>
+                <thead class = "order-table-head">
+                <tr>
+                    <th colspan = '2'>Order ID: <%= receipts[i]._id %></th>
+                    <th colspan = '2'>Ordered on: <%= moment(receipts[i].date).format('YYYY-MM-DD')%></th>
+                </tr>
+                </thead>
+
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Expiry</th>
+                    <th>Points</th>
+                </tr>
+
+                <% for(var key in receipts[i].orderItems) { %>
+                <tr>
+                    <td><%= receipts[i].orderItems[key].title %></td>
+                    <td><%= receipts[i].orderItems[key].quantity %></td>
+                    <td><%= moment(receipts[i].date).format('YYYY-MM-DD')%></td>
+                    <td><%= receipts[i].orderItems[key].points %></td>
+                </tr>
                 <% } %>
-
-                    <% for(i = 0; i < receipts.length; i++) { %>
-            <div class="card card-body order-body">
-                <table>
-                    <thead class = "order-table-head">
-                    <tr>
-                        <th colspan = '2'>Order ID: <%= receipts[i]._id %></th>
-                        <th colspan = '2'>Ordered on: <%= moment(receipts[i].date).format('YYYY-MM-DD')%></th>
-                    </tr>
-                    </thead>
-
-                    <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Expiry</th>
-                        <th>Points</th>
-                    </tr>
-
-                        <% for(var key in receipts[i].orderItems) { %>
-                        <tr>
-                            <td><%= receipts[i].orderItems[key].title %></td>
-                            <td><%= receipts[i].orderItems[key].quantity %></td>
-                            <td><%= moment(receipts[i].date).format('YYYY-MM-DD')%></td>
-                            <td><%= receipts[i].orderItems[key].points %></td>
-                        </tr>
-                        <% } %>
-                    <tr class="total-points">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <th>Total Points: <%= receipts[i].points%></th>
-                    </tr>
-                </table>
-            </div>
-                    <% } %>
-
-
+                <tr class="total-points">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th>Total Points: <%= receipts[i].points%></th>
+                </tr>
+            </table>
         </div>
+        <% } %>
+
+
+    </div>
 
 </div>
 
