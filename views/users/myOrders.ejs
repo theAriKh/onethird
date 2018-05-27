@@ -26,35 +26,38 @@
 
 <div class="whole-page">
     <div><h1>My Orders</h1></div>
-    <div class="container">
-        <div id = "current-orders" class = "container">
-            <div><h3>Current Orders</h3></div>
+    <!--<div class="container">-->
+        <div id = "my-orders" class = "container">
             <div>
-                <table class = "table">
+                <table class = "table table-dark">
 
                     <% for(i = 0; i < receipts.length; i++) { %>
-                    <tr>Delivered on: <% receipts[i].date %></tr>
+                    <thead>
+                    <tr class = "table-success">
+                        <th colspan = '2'>Order ID: <%= receipts[i]._id %></th>
+                        <th colspan = '2'>Ordered on: <%= receipts[i].date %></th>
+                    </tr>
+                    </thead>
+                    <!--<tr></tr>-->
                     <tr>
-                        <th>Quantity</th>
                         <th>Item</th>
+                        <th>Quantity</th>
                         <th>Expiry</th>
                         <th>Points</th>
                     </tr>
                         <% for(var key in receipts[i].orderItems) { %>
                         <tr>
-                            <td><%= receipts[i].orderItems[key].quantity %></td>
                             <td><%= receipts[i].orderItems[key].title %></td>
+                            <td><%= receipts[i].orderItems[key].quantity %></td>
                             <td><%= receipts[i].orderItems[key].date %></td>
                             <td><%= receipts[i].orderItems[key].points %></td>
                         </tr>
                         <% } %>
-
                     <% } %>
                 </table>
             </div>
         </div>
-        <div id = "past-orders"></div>
-    </div>
+    <!--</div>-->
 
 </div>
 
