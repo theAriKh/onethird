@@ -18,6 +18,10 @@ footer p {
     font-family: 'Proza Libre', sans-serif;
 }
 
+.small-p {
+    font-size: 12px;
+}
+
 .container {
     width: 100%;
     background-color: var(--main-bg-color-tp);
