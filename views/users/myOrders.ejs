@@ -33,21 +33,22 @@
                 <table class = "table">
 
                     <% for(i = 0; i < receipts.length; i++) { %>
+                    <tr>Delivered on: <% receipts[i].date %></tr>
                     <tr>
                         <th>Quantity</th>
                         <th>Item</th>
                         <th>Expiry</th>
                         <th>Points</th>
                     </tr>
-                    <% for(var key in receipts[i]) { %>
-                    <tr>
-                        <td>Delivered to: <%= address %></td>
-                        <td><%= receipts[i].orderItems[j].quality %></td>
-                        <td><%= receipts[i].orderItems[j].title %></td>
-                        <td><%= receipts[i].orderItems[j].expiry %></td>
-                        <td><%= receipts[i].orderItems[j].price %></td>
-                    </tr>
-                    <% } %>
+                        <% for(var key in receipts[i].orderItems) { %>
+                        <tr>
+                            <td><%= receipts[i].orderItems[key].quantity %></td>
+                            <td><%= receipts[i].orderItems[key].title %></td>
+                            <td><%= receipts[i].orderItems[key].date %></td>
+                            <td><%= receipts[i].orderItems[key].points %></td>
+                        </tr>
+                        <% } %>
+
                     <% } %>
                 </table>
             </div>
