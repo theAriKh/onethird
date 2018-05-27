@@ -130,6 +130,7 @@ var register = function(req, res){
 var checkout = function(req, res){
     let inputValue = req.body.button;
     let myitems = req.session.myCart;
+    let tempItems = [];
     console.log("checkout: ", req.body.button)
     console.log("inputvalue", inputValue)
     console.log(myitems);
@@ -143,23 +144,21 @@ var checkout = function(req, res){
             Object.keys(myitems).forEach(key=>{
                 ids.push(myitems[key]._id)
                 totalpoints += myitems[key].points
+                tempItems.push(myitems[key]);
             })
  
             if (user.points >= totalpoints){
                 user.points = user.points - totalpoints;
-
-
-
-
                 user.save().then(()=>{
                     Item.remove({
                         _id: {$in: ids}
                     }).then(() => {
+                        console.log("before creating receipt, sessionI", req.session.myCart)
+                        console.log("before creating receipt, myitems", req.session.myCart)              
                         const receipt = new Receipt({
-                            user : req.user.id,
-                            orderItems : req.session.myCart
+                            user : req.user._id,
+                            orderItems : tempItems
                         });
-                        console.log("here in receipt" + receipt);
                         receipt.save().then(receipt=>{
                             req.session.myCart = {};
                             req.session.totalpoints = 0;

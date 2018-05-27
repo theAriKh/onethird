@@ -43,10 +43,11 @@ var addToCart = function (req, res) {
         if (req.session.myCart) {
             req.session.myCart[item._id]=item;
             req.session.totalpoints += item.points
+            console.log("add to cart, item", item)
+            console.log("add to cart, mycart", req.session.myCart)
 
         }
         else {
-            console.log("here", req.session.myCart)
             req.session.myCart = {}
             console.log("length", Object.keys(req.session.myCart).length)
             req.session.myCart[item._id] = item;
