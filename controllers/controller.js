@@ -10,6 +10,7 @@ const passport = require('passport');
 const Receipt = mongoose.model('receipt');
 const moment = require('moment');
 
+// Creates user upon registration
 var createUser = function(req, res){
     let errors = [];
 
@@ -65,6 +66,7 @@ var createUser = function(req, res){
     }
 }
 
+// Authenticate user
 var getUser = function(req, res, next){
     passport.authenticate('local', {
         successRedirect: '/main',
@@ -73,6 +75,7 @@ var getUser = function(req, res, next){
     })(req,res,next)
 }
 
+// Gets all relevent information about user profile
 var getMyAccount = function(req, res){
     if(!req.isAuthenticated()){
         req.flash('error_msg', 'Not Authorized');
@@ -89,6 +92,7 @@ var getMyAccount = function(req, res){
     }
 }
 
+// Get all relevant past orders for user from mongoDB
 var getReceipts = function(req,res) {
     Receipt.find({user: req.user.id}).sort({date: 'descending'}).then(receipts => {
             res.render('users/myOrders', {
@@ -102,6 +106,7 @@ var getReceipts = function(req,res) {
     )
 }
 
+// Logs in user
 var login = function(req, res){
     res.render('users/login', {
         errors: []
@@ -109,12 +114,14 @@ var login = function(req, res){
 
 }
 
+// Logs out user
 var logout = function(req, res){
     req.logout();
     req.flash('success_msg', "You are logged out")
     res.redirect('/users/login')
 }
 
+// Default information for register page
 var register = function(req, res){
     res.render('users/register', {
         errors: [],
@@ -132,7 +139,7 @@ var register = function(req, res){
 
 }
 
-
+// Facilitates checkout
 var checkout = function(req, res){
     let inputValue = req.body.button;
     let myitems = req.session.myCart;

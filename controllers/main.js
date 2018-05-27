@@ -7,7 +7,7 @@ const User = mongoose.model('user');
 const Receipt = mongoose.model('receipt');
 const moment = require('moment');
 
-
+// Populate browse page
 var getItems = function (req, res) {
     if (req.session.totalpoints == null) {
         console.log("here in get items")
@@ -32,7 +32,7 @@ var getItems = function (req, res) {
 
 }
 
-
+// Adds selected item to sessions cart
 var addToCart = function (req, res) {
     let totalpoints = req.session.totalpoints
 
@@ -70,6 +70,7 @@ var addToCart = function (req, res) {
 
 }
 
+// Allows users to search specific items.
 var searchItem = function (req, res) {
     
 

@@ -15,10 +15,12 @@ var isAdmin = function (req, res) {
     })
 }
 
+// renders add item page from admin users
 var addItem = function(req, res){
     res.render('admin/add')
 }
 
+// Form help and item adding for admin
 var processItem = function(req, res){
     let errors = [];
     if (!req.body.title){

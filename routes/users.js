@@ -7,13 +7,15 @@ const controllerA = require('../controllers/admin');
 
 router.get('/login', controller.login)
 
+//Routes the adding of items for both user and admin
 router.get('/index', controllerA.isAdmin)
 router.get('admin/add', controllerA.addItem)
 router.post('admin/add', controllerA.processItem)
 
-//routes receipts to my orders, will render users/myOrders
+//routes receipt information to my orders
 router.get('/myOrders', controller.getReceipts)
 
+//facilitate login and registration
 router.post('/login', controller.getUser)
 router.get('/register',controller.register)
 
